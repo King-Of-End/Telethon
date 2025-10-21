@@ -1,0 +1,86 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"Добавил файл с зависимостями\">\n      <change afterPath=\"$PROJECT_DIR$/Graph.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/Telethon.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/Telethon.iml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"King-Of-End\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/King-Of-End/Telethon.git\",\n    \"accountId\": \"14203152-cab3-4976-b0c0-bc370534ed23\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 1\n}</component>\n  <component name=\"ProjectId\" id=\"33v6JPCHWWAoSzbWNiRA6jKJlmb\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"Python.main.executor\": \"Run\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager\": \"true\",\n    \"git-widget-placeholder\": \"main\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"\" />\n      <created>1760185125242</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1760185125242</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760691447193</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760691447193</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Добавил файл с зависимостями\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760692409517</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760692409517</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"3\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"Добавил файл с зависимостями\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Добавил файл с зависимостями\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5faa1bfe890388ddba4e74346c807975c4b07aa8)
++++ b/.idea/workspace.xml	(date 1760784334667)
+@@ -4,10 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Добавил файл с зависимостями">
+-      <change afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/Telethon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Telethon.iml" afterDir="false" />
++    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Создал файл с Графом, обновил зависимости">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/my_account.session" beforeDir="false" afterPath="$PROJECT_DIR$/my_account.session" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/my_account.session-journal" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -24,18 +24,18 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "King-Of-End"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;King-Of-End&quot;
+   }
+-}]]></component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/King-Of-End/Telethon.git",
+-    "accountId": "14203152-cab3-4976-b0c0-bc370534ed23"
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/King-Of-End/Telethon.git&quot;,
++    &quot;accountId&quot;: &quot;14203152-cab3-4976-b0c0-bc370534ed23&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 1
+ }</component>
+@@ -50,6 +50,7 @@
+     "Python.main.executor": "Run",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
++    "RunOnceActivity.git.unshallow": "true",
+     "git-widget-placeholder": "main"
+   }
+ }]]></component>
+@@ -84,12 +85,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1760692409517</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Создал файл с Графом, обновил зависимости">
++      <option name="closed" value="true" />
++      <created>1760696985401</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1760696985401</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="initial commit" />
+     <MESSAGE value="Добавил файл с зависимостями" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Добавил файл с зависимостями" />
++    <MESSAGE value="Создал файл с Графом, обновил зависимости" />
++    <option name="LAST_COMMIT_MESSAGE" value="Создал файл с Графом, обновил зависимости" />
+   </component>
+ </project>
+\ No newline at end of file
