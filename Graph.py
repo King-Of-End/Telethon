@@ -3,14 +3,20 @@ from langgraph.graph import StateGraph, START, END
 
 from states import *
 from LLM import *
-from promts import *
+from prompts import *
 from parsers import *
+
+
+# Сделать рисунок графа
+def print_graph():
+    with open('graph.png', "wb") as f:
+        f.write(app.get_graph().draw_mermaid_png())
 
 # Создание узлов
 def get_type(state: MessageState) -> MessageState:
-    llm_chain = base_global_llm | type_prompt | type_prompt
+    llm_chain = type_prompt | base_global_llm | type_parser
     res = llm_chain.invoke(input={'user_input': state.user_message})
-    state.type = res.type
+    state.type = res
     return state
 
 
@@ -76,5 +82,3 @@ graph.add_conditional_edges(
 
 app = graph.compile()
 
-with open('graph.png', "wb") as f:
-    f.write(app.get_graph().draw_mermaid_png())

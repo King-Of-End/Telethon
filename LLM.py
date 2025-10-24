@@ -1,7 +1,9 @@
 import os
-
+from dotenv import load_dotenv
 from langchain_ollama import OllamaLLM
 from langchain_openai import ChatOpenAI
+
+load_dotenv()
 
 base_local_llm = OllamaLLM(
     model='qwen3:8b',
@@ -15,7 +17,6 @@ base_global_llm = ChatOpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
     base_url="https://openrouter.ai/api/v1",
     temperature=0,
-    reasoning=True,
     reasoning_effort='high',
 )
 
