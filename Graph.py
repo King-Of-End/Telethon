@@ -1,18 +1,16 @@
 from typing import Tuple
-
 from langgraph.graph import StateGraph, START, END
-from pydantic import BaseModel
 
-
-class MessageState(BaseModel):
-    message: str
-    username: str
-    type: str
-    is_ready: bool = False
-
+from states import *
+from LLM import *
+from promts import *
+from parsers import *
 
 # Создание узлов
-def get_content(state: MessageState) -> MessageState:
+def get_type(state: MessageState) -> MessageState:
+    llm_chain = base_global_llm | type_prompt | type_prompt
+    res = llm_chain.invoke(input={'user_input': state.user_message})
+    state.type = res.type
     return state
 
 
@@ -33,7 +31,7 @@ def get_completion(state: MessageState) -> MessageState:
 
 
 # Создание условных ребер
-def check_content(state: MessageState) -> str:
+def check_type(state: MessageState) -> str:
     return state.type
 
 
@@ -43,7 +41,7 @@ def check_completion(state: MessageState) -> Tuple[bool, str]:
 
 graph = StateGraph(MessageState)
 
-graph.add_node('get_content', get_content)
+graph.add_node('get_content', get_type)
 graph.add_node('create_task', create_task)
 graph.add_node('get_task', get_task)
 graph.add_node('manage_task', manage_task)
@@ -56,7 +54,7 @@ graph.add_edge('manage_task', 'get_completion')
 
 graph.add_conditional_edges(
     'get_content',
-    check_content,
+    check_type,
     {
         'create_task': 'create_task',
         'get_task': 'get_task',
