@@ -1,6 +1,8 @@
 from typing import Tuple
 from langgraph.graph import StateGraph, START, END
 
+import telegram
+from tasks import tasks
 from states import *
 from LLM import *
 from prompts import *
@@ -12,6 +14,7 @@ def print_graph():
     with open('graph.png', "wb") as f:
         f.write(app.get_graph().draw_mermaid_png())
 
+
 # Создание узлов
 def get_type(state: MessageState) -> MessageState:
     llm_chain = type_prompt | base_global_llm | type_parser
@@ -21,6 +24,9 @@ def get_type(state: MessageState) -> MessageState:
 
 
 def create_task(state: MessageState) -> MessageState:
+    llm_chain = create_task_prompt | base_global_llm | task_parser
+    res = llm_chain.invoke(input={'user_input': state.user_message, 'task': tasks['create']})
+    state.message = res
     return state
 
 
@@ -36,13 +42,14 @@ def get_completion(state: MessageState) -> MessageState:
     return state
 
 
+def send_message(state: MessageState) -> MessageState:
+    telegram.send_message(state.message, state.username)
+    return state
+
+
 # Создание условных ребер
 def check_type(state: MessageState) -> str:
     return state.type
-
-
-def check_completion(state: MessageState) -> Tuple[bool, str]:
-    return state.is_ready, state.type
 
 
 graph = StateGraph(MessageState)
@@ -81,4 +88,3 @@ graph.add_conditional_edges(
 )
 
 app = graph.compile()
-

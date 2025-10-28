@@ -1,0 +1,5 @@
+tasks = {
+    'create': '',
+    'get': '',
+    'manage': '',
+}

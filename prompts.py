@@ -28,3 +28,4 @@ type_prompt = ChatPromptTemplate.from_messages([
     ('system', type_system_prompt),
     type_human_prompt
 ])
+
