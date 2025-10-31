@@ -20,7 +20,32 @@ base_global_llm = ChatOpenAI(
     reasoning_effort='high',
 )
 
+advanced_local_llm = OllamaLLM(
+    model='gpt-oss:20b',
+    temperature=0,
+    reasoning=True,
+    repeat_last_n=-1,
+)
+
+tooled_local_llm = OllamaLLM(
+    model='qwen3:8b',
+    temperature=0,
+    reasoning=True,
+    repeat_last_n=-1,
+)
+
+tooled_global_llm = ChatOpenAI(
+    model='qwen/qwen3-235b-a22b:free',
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+    base_url="https://openrouter.ai/api/v1",
+    temperature=0,
+    reasoning_effort='high',
+)
+
 __all__ = [
     'base_local_llm',
     'base_global_llm',
+    'advanced_local_llm',
+    'tooled_local_llm',
+    'tooled_global_llm',
 ]

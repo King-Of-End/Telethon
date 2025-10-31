@@ -1,13 +1,15 @@
-from typing import Any
+from typing import List
+
 from pydantic import BaseModel
 
 
 class MessageState(BaseModel):
     user_message: str
     username: str = ''
-    type: Any = None
-    is_ready: bool = False
+    type: str = ''
+    completion: bool | None = None
     message: str = ''
+    chain: List[str] = list()
 
 
 class TypeModel(BaseModel):
