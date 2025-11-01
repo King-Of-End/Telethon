@@ -1,4 +1,3 @@
-
 --------------------------------------------------
 user_message='привет' username='' type='' completion=None message='' chain=[]
 {'user_message': 'привет', 'username': '', 'type': 'talk', 'message': 'Привет! Как дела? Чем могу помочь?', 'chain': ['get_type', 'talk', 'get_completion', 'send_message']}

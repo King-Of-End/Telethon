@@ -90,7 +90,6 @@ graph.add_node('talk', talk)
 graph.add_node('get_completion', get_completion)
 graph.add_node('send_message', send_message)
 
-
 graph.add_edge(START, 'get_type')
 graph.add_edge('create_task', 'get_completion')
 graph.add_edge('get_task', 'get_completion')
@@ -101,10 +100,10 @@ graph.add_conditional_edges(
     'get_type',
     check_type,
     {
+        'talk': 'talk',
         'add': 'create_task',
         'get': 'get_task',
         'manage': 'manage_task',
-        'talk': 'talk'
     }
 )
 
@@ -118,4 +117,6 @@ graph.add_conditional_edges(
 )
 
 app = graph.compile()
-print_graph()
+
+if __name__ == '__main__':
+    print_graph()
