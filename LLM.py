@@ -42,10 +42,14 @@ tooled_global_llm = ChatOpenAI(
     reasoning_effort='high',
 )
 
+is_llm_online = os.getenv('online')
+
+base_llm = base_global_llm if is_llm_online else base_local_llm
+advanced_llm = base_global_llm if is_llm_online else advanced_local_llm
+tooled_llm = tooled_global_llm if is_llm_online else tooled_local_llm
+
 __all__ = [
-    'base_local_llm',
-    'base_global_llm',
-    'advanced_local_llm',
-    'tooled_local_llm',
-    'tooled_global_llm',
+    'base_llm',
+    'advanced_llm',
+    'tooled_llm',
 ]

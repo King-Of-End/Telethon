@@ -18,9 +18,9 @@ def print_graph():
 def get_type(state: MessageState) -> MessageState:
     state.chain.append('get_type')
     if state.completion is None:
-        llm = base_local_llm
+        llm = base_llm
     else:
-        llm = advanced_local_llm
+        llm = advanced_llm
     llm_chain = type_prompt | llm | type_parser
     res = llm_chain.invoke(input={'user_input': state.user_message})
     state.type = res['type']
@@ -29,14 +29,14 @@ def get_type(state: MessageState) -> MessageState:
 
 def talk(state: MessageState) -> MessageState:
     state.chain.append('talk')
-    res = advanced_local_llm.invoke(state.user_message)
+    res = advanced_llm.invoke(state.user_message)
     state.message = res
     return state
 
 
 def create_task(state: MessageState) -> MessageState:
     state.chain.append('create_task')
-    llm_chain = task_prompt | advanced_local_llm | task_parser
+    llm_chain = task_prompt | advanced_llm | task_parser
     res = llm_chain.invoke(input={'user_input': state.user_message, 'task': TASKS.CREATE})
     state.message = res['message']
     return state
@@ -44,7 +44,7 @@ def create_task(state: MessageState) -> MessageState:
 
 def get_task(state: MessageState) -> MessageState:
     state.chain.append('get_task')
-    llm_chain = task_prompt | advanced_local_llm | task_parser
+    llm_chain = task_prompt | advanced_llm | task_parser
     res = llm_chain.invoke(input={'user_input': state.user_message, 'task': TASKS.GET})
     state.message = res['message']
     return state
@@ -52,7 +52,7 @@ def get_task(state: MessageState) -> MessageState:
 
 def manage_task(state: MessageState) -> MessageState:
     state.chain.append('manage_task')
-    llm_chain = task_prompt | advanced_local_llm | task_parser
+    llm_chain = task_prompt | advanced_llm | task_parser
     res = llm_chain.invoke(input={'user_input': state.user_message, 'task': TASKS.MANAGE})
     state.message = res['message']
     return state
