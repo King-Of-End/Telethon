@@ -1,28 +1,5 @@
-from pydantic import BaseModel
-from langgraph.graph import StateGraph, END, START
+sp = ['aiohappyeyeballs', 'aiohttp', 'aiosignal', 'annotated-types', 'anyio', 'attrs', 'certifi', 'charset-normalizer', 'colorama', 'dataclasses-json', 'distro', 'frozenlist', 'greenlet', 'h11', 'httpcore', 'httpx', 'httpx-sse', 'idna', 'jiter', 'jsonpatch', 'jsonpointer', 'langchain', 'langchain-classic', 'langchain-community', 'langchain-core', 'langchain-ollama', 'langchain-openai', 'langchain-text-splitters', 'langchain-tools', 'langgraph', 'langgraph-checkpoint', 'langgraph-prebuilt', 'langgraph-sdk', 'langsmith', 'marshmallow', 'multidict', 'mypy_extensions', 'numpy', 'ollama', 'openai', 'orjson', 'ormsgpack', 'packaging', 'propcache', 'pyaes', 'pydantic', 'pydantic-settings', 'pydantic_core', 'pyqtgraph', 'Pyrogram', 'PySocks', 'python-dotenv', 'PyYAML', 'regex', 'requests', 'requests-toolbelt', 'sniffio', 'SQLAlchemy', 'tenacity', 'tiktoken', 'tqdm', 'typing-inspect', 'typing-inspection', 'typing_extensions', 'urllib3', 'xxhash', 'yarl', 'zstandard']
 
-
-class TestState(BaseModel):
-    name: str
-    address: str
-
-def capitalize_name(state: TestState) -> TestState:
-    state.name = state.name.capitalize()
-    return state
-
-def print_info(state: TestState) -> TestState:
-    print(state.name)
-    print(state.address)
-    return state
-
-graph = StateGraph(TestState)
-
-graph.add_node('capitalize_name', capitalize_name)
-graph.add_node('print_info', print_info)
-
-graph.add_edge(START, 'capitalize_name')
-graph.add_edge('capitalize_name', 'print_info')
-graph.add_edge('print_info', END)
-
-app = graph.compile()
-app.invoke(TestState(name='nikita', address='moscow'))
+with open('pip.txt', 'w') as f:
+    for i in sp:
+        f.write(i + '\n')
