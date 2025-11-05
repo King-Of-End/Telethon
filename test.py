@@ -1,5 +1,7 @@
-sp = ['aiohappyeyeballs', 'aiohttp', 'aiosignal', 'annotated-types', 'anyio', 'attrs', 'certifi', 'charset-normalizer', 'colorama', 'dataclasses-json', 'distro', 'frozenlist', 'greenlet', 'h11', 'httpcore', 'httpx', 'httpx-sse', 'idna', 'jiter', 'jsonpatch', 'jsonpointer', 'langchain', 'langchain-classic', 'langchain-community', 'langchain-core', 'langchain-ollama', 'langchain-openai', 'langchain-text-splitters', 'langchain-tools', 'langgraph', 'langgraph-checkpoint', 'langgraph-prebuilt', 'langgraph-sdk', 'langsmith', 'marshmallow', 'multidict', 'mypy_extensions', 'numpy', 'ollama', 'openai', 'orjson', 'ormsgpack', 'packaging', 'propcache', 'pyaes', 'pydantic', 'pydantic-settings', 'pydantic_core', 'pyqtgraph', 'Pyrogram', 'PySocks', 'python-dotenv', 'PyYAML', 'regex', 'requests', 'requests-toolbelt', 'sniffio', 'SQLAlchemy', 'tenacity', 'tiktoken', 'tqdm', 'typing-inspect', 'typing-inspection', 'typing_extensions', 'urllib3', 'xxhash', 'yarl', 'zstandard']
+from typing import Optional
 
-with open('pip.txt', 'w') as f:
-    for i in sp:
-        f.write(i + '\n')
+
+def f(n: Optional[int]):
+    return n * n
+
+print(f())

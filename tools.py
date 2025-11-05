@@ -4,7 +4,7 @@ from langchain.tools import tool
 import sqlite3
 
 tools: List[StructuredTool] = list()
-functions: List[Callable] = list()
+functions: dict[str: Callable] = dict()
 
 
 def add(func: Any) -> Callable:
@@ -12,23 +12,26 @@ def add(func: Any) -> Callable:
     return func
 
 
-def add_func(func: Any) -> Callable:
-    functions.append(func)
-    return func
+def add_func(name: str) -> Callable:
+    def add_func_wrapper(func: Any) -> Callable:
+        functions[name] = func
+        return func
+
+    return add_func_wrapper
 
 
 @add
 @tool
-@add_func
-def add_task(date: str, title: str, priority: int) -> Literal['Успешно', 'Неуспешно']:
+@add_func('add_task')
+def add_task(date: str, task: str, priority: int) -> Literal['Успешно', 'Неуспешно']:
     """Добавляет задачу в базу данных
     Входные данные:
     date: str (формат YYYY-MM-DD)
     task: str (текст задачи)
     priority: int (от 1 до 10)"""
 
-    request: str = f'''INSERT INTO active_tasks(date, title, priority) 
-    VALUES({date}, {title}, {priority})'''
+    request: str = f'''INSERT INTO active_tasks(date, task, priority) 
+    VALUES({date}, {task}, {priority})'''
 
     try:
         con = sqlite3.connect('tasks.sqlite')
@@ -42,9 +45,9 @@ def add_task(date: str, title: str, priority: int) -> Literal['Успешно', 
 
 @add
 @tool
-@add_func
-def search_tasks_database(date: Optional[str], task: Optional[str], priority: Optional[str]) \
-        -> List[dict[str, str | int]]:
+@add_func('search_tasks_database')
+def search_tasks_database(date: Optional[str] = None, task: Optional[str] = None, priority: Optional[str] = None) \
+        -> List[dict[str, str | int]] | Literal['Неуспешно']:
     """Производит поиск по базе данных принимая одно или несколько следующих значений
     Входные данные:
     date: str (формат YYYY-MM-DD)
@@ -54,11 +57,27 @@ def search_tasks_database(date: Optional[str], task: Optional[str], priority: Op
 
     Возвращает список с результатами поиска """
 
+    request: str = f'''SELECT date, task, priority FROM active_tasks '''
+    if date: request += f'''{date=} '''
+    if task: request += f'''{task=} '''
+    if priority: request += f'''{priority=} '''
+
+    try:
+        con = sqlite3.connect('tasks.sqlite')
+        cur = con.cursor()
+        res = cur.execute(request).fetchall()
+        ans: List[dict[str, str | int]] = list()
+        for row in res:
+            ans.append(dict(row))
+        return ans
+    except sqlite3.DatabaseError:
+        return 'Неуспешно'
+
 
 @add
 @tool
-@add_func
-def update_task(task_id: int, date: Optional[str], task: Optional[str], priority: Optional[str]) \
+@add_func('update_task')
+def update_task(task_id: int, date: Optional[str] = None, task: Optional[str] = None, priority: Optional[str] = None) \
         -> Literal['Успешно', 'Неуспешно']:
     """Обновляет данные задачи в базе данных по id
     Входные данные:
@@ -71,10 +90,26 @@ def update_task(task_id: int, date: Optional[str], task: Optional[str], priority
 
     Возвращает сообщение об успехе/неуспехе"""
 
+    request: str = f'''UPDATE active_tasks 
+    SET '''
+    if date: request += f'''{date=} \n'''
+    if task: request += f'''{task=} \n'''
+    if priority: request += f'''{priority=} \n'''
+    request += f'''WHERE id={task_id}'''
+
+    try:
+        con = sqlite3.connect('tasks.sqlite')
+        cur = con.cursor()
+        cur.execute(request)
+        con.commit()
+        return 'Успешно'
+    except sqlite3.DatabaseError:
+        return 'Неуспешно'
+
 
 @add
 @tool
-@add_func
+@add_func('delete_task')
 def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']:
     """Удаляёт задачу по id и убирает её в базу данных удаленных задач
     Входные данные:
@@ -88,8 +123,8 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
     try:
         con = sqlite3.connect('tasks.sqlite')
         cur = con.cursor()
-        task = cur.execute(get_request).fetchall()
-        add_request: str = f'''INSERT INTO deleted_tasks VALUES({task[0]})'''
+        del_task = cur.execute(get_request).fetchall()
+        add_request: str = f'''INSERT INTO deleted_tasks VALUES({del_task[0]})'''
         cur.execute(add_request)
         cur.execute(del_request)
         con.commit()
@@ -100,8 +135,8 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
 
 @add
 @tool
-@add_func
-def search_similar(query: str, top_k: Optional[int] = 1) -> List[dict]:
+@add_func('search_similar')
+def search_similar(query: str, top_k: int = 1) -> List[dict]:
     """Производит поиск по векторной базе данных с задачами
     Входные данные:
     query: str (запрос для поиска)
