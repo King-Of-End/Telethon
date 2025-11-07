@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Закончил функции работы с БД">
-      <change afterPath="$PROJECT_DIR$/qdrant.py" afterDir="false" />
+    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Доделал функцию get_type и провёл базовые тесты">
+      <change afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/telegram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pip.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pip.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsers.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/states.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +29,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -33,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/King-Of-End/Telethon.git&quot;,
-    &quot;accountId&quot;: &quot;14203152-cab3-4976-b0c0-bc370534ed23&quot;
+    &quot;accountId&quot;: &quot;7244090b-5e35-476b-8024-b963118c2e07&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -51,8 +58,6 @@
     &quot;Python.LLM.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.prompts.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tools.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -61,29 +66,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="Graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Telethon" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Graph.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python">
       <module name="Telethon" />
       <option name="ENV_FILES" value="" />
@@ -107,16 +90,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.Graph" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
+        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
       </set>
     </attachedChunks>
   </component>
@@ -144,21 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1760692409517</updated>
     </task>
-    <task id="LOCAL-00003" summary="Проверил и исправил работу Графа, добавил логирование вводов-выводов">
+    <task id="LOCAL-00003" summary="Доделал функцию get_type и провёл базовые тесты">
       <option name="closed" value="true" />
-      <created>1761943300577</created>
+      <created>1761311289299</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1761943300577</updated>
+      <updated>1761311289299</updated>
     </task>
-    <task id="LOCAL-00004" summary="Закончил функции работы с БД">
+    <task id="LOCAL-00004" summary="Доделал функцию get_type и провёл базовые тесты">
       <option name="closed" value="true" />
-      <created>1762368962034</created>
+      <created>1761311298349</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1762368962034</updated>
+      <updated>1761311298349</updated>
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
@@ -167,8 +145,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="Добавил файл с зависимостями" />
     <MESSAGE value="Сделал основу графа и его визуализацию" />
-    <MESSAGE value="Проверил и исправил работу Графа, добавил логирование вводов-выводов" />
-    <MESSAGE value="Закончил функции работы с БД" />
-    <option name="LAST_COMMIT_MESSAGE" value="Закончил функции работы с БД" />
+    <MESSAGE value="Доделал функцию get_type и провёл базовые тесты" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доделал функцию get_type и провёл базовые тесты" />
   </component>
 </project>

@@ -1,0 +1,7 @@
+python-dotenv
+langchain-openai
+langgraph
+pydantic
+langchain-core
+langchain
+qdrant-client

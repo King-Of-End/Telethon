@@ -1,0 +1,357 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025__14_56__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025__14_56__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025__14_56__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025__14_56__Changes_1.xml	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
++++ /dev/null	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
+@@ -1,14 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1" date="1761306986981" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 24.10.2025, 14:56 [Changes]" />
+-  <binary>
+-    <option name="BEFORE_PATH" value="my_account.session-journal" />
+-    <option name="AFTER_PATH" value="my_account.session-journal" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/my_account.session-journal" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="my_account.session" />
+-    <option name="AFTER_PATH" value="my_account.session" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/my_account.session" />
+-  </binary>
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/shelved.patch	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
++++ /dev/null	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
+@@ -1,86 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"Добавил файл с зависимостями\">\n      <change afterPath=\"$PROJECT_DIR$/Graph.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/Telethon.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/Telethon.iml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"King-Of-End\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/King-Of-End/Telethon.git\",\n    \"accountId\": \"14203152-cab3-4976-b0c0-bc370534ed23\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 1\n}</component>\n  <component name=\"ProjectId\" id=\"33v6JPCHWWAoSzbWNiRA6jKJlmb\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"Python.main.executor\": \"Run\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager\": \"true\",\n    \"git-widget-placeholder\": \"main\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"\" />\n      <created>1760185125242</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1760185125242</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760691447193</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760691447193</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Добавил файл с зависимостями\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760692409517</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760692409517</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"3\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"Добавил файл с зависимостями\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Добавил файл с зависимостями\" />\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 5faa1bfe890388ddba4e74346c807975c4b07aa8)
+-+++ b/.idea/workspace.xml	(date 1760784334667)
+-@@ -4,10 +4,10 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Добавил файл с зависимостями">
+--      <change afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/Telethon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Telethon.iml" afterDir="false" />
+-+    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Создал файл с Графом, обновил зависимости">
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/my_account.session" beforeDir="false" afterPath="$PROJECT_DIR$/my_account.session" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/my_account.session-journal" beforeDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -24,18 +24,18 @@
+-   <component name="Git.Settings">
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-   </component>
+--  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+--  "lastFilter": {
+--    "state": "OPEN",
+--    "assignee": "King-Of-End"
+-+  <component name="GitHubPullRequestSearchHistory">{
+-+  &quot;lastFilter&quot;: {
+-+    &quot;state&quot;: &quot;OPEN&quot;,
+-+    &quot;assignee&quot;: &quot;King-Of-End&quot;
+-   }
+--}]]></component>
+--  <component name="GithubPullRequestsUISettings"><![CDATA[{
+--  "selectedUrlAndAccountId": {
+--    "url": "https://github.com/King-Of-End/Telethon.git",
+--    "accountId": "14203152-cab3-4976-b0c0-bc370534ed23"
+-+}</component>
+-+  <component name="GithubPullRequestsUISettings">{
+-+  &quot;selectedUrlAndAccountId&quot;: {
+-+    &quot;url&quot;: &quot;https://github.com/King-Of-End/Telethon.git&quot;,
+-+    &quot;accountId&quot;: &quot;14203152-cab3-4976-b0c0-bc370534ed23&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="ProjectColorInfo">{
+-   &quot;associatedIndex&quot;: 1
+- }</component>
+-@@ -50,6 +50,7 @@
+-     "Python.main.executor": "Run",
+-     "RunOnceActivity.ShowReadmeOnStart": "true",
+-     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+-+    "RunOnceActivity.git.unshallow": "true",
+-     "git-widget-placeholder": "main"
+-   }
+- }]]></component>
+-@@ -84,12 +85,21 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1760692409517</updated>
+-     </task>
+--    <option name="localTasksCounter" value="3" />
+-+    <task id="LOCAL-00003" summary="Создал файл с Графом, обновил зависимости">
+-+      <option name="closed" value="true" />
+-+      <created>1760696985401</created>
+-+      <option name="number" value="00003" />
+-+      <option name="presentableId" value="LOCAL-00003" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1760696985401</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="4" />
+-     <servers />
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-     <MESSAGE value="initial commit" />
+-     <MESSAGE value="Добавил файл с зависимостями" />
+--    <option name="LAST_COMMIT_MESSAGE" value="Добавил файл с зависимостями" />
+-+    <MESSAGE value="Создал файл с Графом, обновил зависимости" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Создал файл с Графом, обновил зависимости" />
+-   </component>
+- </project>
+-\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/shelved.patch	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
++++ /dev/null	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
+@@ -1,153 +0,0 @@
+-Index: main.py
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import asyncio\nfrom concurrent.futures import ThreadPoolExecutor\nfrom pyrogram import Client, filters\n\n# Replace these with your actual API ID and API Hash from my.telegram.org\nAPI_ID = 25364356  # Your API ID (integer)\nAPI_HASH = \"ae13c2eb22d8157151ef505a82bdb840\"  # Your API Hash (string)\n\n\n# Define the message processing function\n# This is a synchronous function; it can be expanded later.\n# For demonstration, it just echoes the message with the username.\ndef proceed_message(message_text, username):\n    # Simulate a potentially long-running operation (remove or adjust as needed)\n    import time\n    with open('logs.txt', 'a', encoding='utf-8') as log_file:\n        log_file.write(f\"{username}: {message_text}\\n\")\n    time.sleep(5)  # Simulate delay\n    return f\"Work in progress\\nРазработка в процессе\\n\\n**Теория Мертвого Интернета**\"\n\n\n# Create the Pyrogram Client for a user account (not a bot)\napp = Client(\n    \"my_account\",  # Session name\n    api_id=API_ID,\n    api_hash=API_HASH,\n    workers=10  # Increase workers for better parallelism if needed\n)\n\n# Set up a thread pool executor for running synchronous, potentially blocking functions\nexecutor = ThreadPoolExecutor(max_workers=10)  # Adjust max_workers based on expected load\n\n\n@app.on_message(filters.private)  # Handle private text messages\nasync def handle_message(client, message):\n    username = message.from_user.username or message.from_user.first_name  # Fallback to first name if no username\n    text = message.text\n\n    # Run the proceed_message in a separate thread to avoid blocking the asyncio loop\n    loop = asyncio.get_running_loop()\n    response = await loop.run_in_executor(executor, proceed_message, text, username)\n\n    # Send the response back to the user\n    await message.reply_text(response)\n\n\n# Run the client\nprint(\"Starting the Telegram client...\")\napp.run()
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/main.py b/main.py
+---- a/main.py	(revision 2c6874253a09c5783f7a7cf333fc60e5b862d1c5)
+-+++ b/main.py	(date 1761053324389)
+-@@ -1,49 +1,0 @@
+--import asyncio
+--from concurrent.futures import ThreadPoolExecutor
+--from pyrogram import Client, filters
+--
+--# Replace these with your actual API ID and API Hash from my.telegram.org
+--API_ID = 25364356  # Your API ID (integer)
+--API_HASH = "ae13c2eb22d8157151ef505a82bdb840"  # Your API Hash (string)
+--
+--
+--# Define the message processing function
+--# This is a synchronous function; it can be expanded later.
+--# For demonstration, it just echoes the message with the username.
+--def proceed_message(message_text, username):
+--    # Simulate a potentially long-running operation (remove or adjust as needed)
+--    import time
+--    with open('logs.txt', 'a', encoding='utf-8') as log_file:
+--        log_file.write(f"{username}: {message_text}\n")
+--    time.sleep(5)  # Simulate delay
+--    return f"Work in progress\nРазработка в процессе\n\n**Теория Мертвого Интернета**"
+--
+--
+--# Create the Pyrogram Client for a user account (not a bot)
+--app = Client(
+--    "my_account",  # Session name
+--    api_id=API_ID,
+--    api_hash=API_HASH,
+--    workers=10  # Increase workers for better parallelism if needed
+--)
+--
+--# Set up a thread pool executor for running synchronous, potentially blocking functions
+--executor = ThreadPoolExecutor(max_workers=10)  # Adjust max_workers based on expected load
+--
+--
+--@app.on_message(filters.private)  # Handle private text messages
+--async def handle_message(client, message):
+--    username = message.from_user.username or message.from_user.first_name  # Fallback to first name if no username
+--    text = message.text
+--
+--    # Run the proceed_message in a separate thread to avoid blocking the asyncio loop
+--    loop = asyncio.get_running_loop()
+--    response = await loop.run_in_executor(executor, proceed_message, text, username)
+--
+--    # Send the response back to the user
+--    await message.reply_text(response)
+--
+--
+--# Run the client
+--print("Starting the Telegram client...")
+--app.run()
+-\ No newline at end of file
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"Сделал основу графа и его визуализацию\">\n      <change afterPath=\"$PROJECT_DIR$/.idea/ai_toolkit.xml\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/graph.png\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Graph.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Graph.py\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;King-Of-End&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/King-Of-End/Telethon.git\",\n    \"accountId\": \"7244090b-5e35-476b-8024-b963118c2e07\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 1\n}</component>\n  <component name=\"ProjectId\" id=\"33v6JPCHWWAoSzbWNiRA6jKJlmb\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"Python.Graph.executor\": \"Run\",\n    \"Python.main.executor\": \"Run\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"git-widget-placeholder\": \"main\",\n    \"settings.editor.selected.configurable\": \"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"\" />\n      <created>1760185125242</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1760185125242</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760691447193</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760691447193</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Добавил файл с зависимостями\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760692409517</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760692409517</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"3\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"Добавил файл с зависимостями\" />\n    <MESSAGE value=\"Сделал основу графа и его визуализацию\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Сделал основу графа и его визуализацию\" />\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 2c6874253a09c5783f7a7cf333fc60e5b862d1c5)
+-+++ b/.idea/workspace.xml	(date 1761053474295)
+-@@ -5,11 +5,11 @@
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Сделал основу графа и его визуализацию">
+--      <change afterPath="$PROJECT_DIR$/.idea/ai_toolkit.xml" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/graph.png" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/my_account.session" beforeDir="false" afterPath="$PROJECT_DIR$/my_account.session" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/my_account.session-journal" beforeDir="false" afterPath="$PROJECT_DIR$/my_account.session-journal" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -25,6 +25,7 @@
+-   </component>
+-   <component name="Git.Settings">
+-     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
+-   </component>
+-   <component name="GitHubPullRequestSearchHistory">{
+-   &quot;lastFilter&quot;: {
+-@@ -32,12 +33,12 @@
+-     &quot;assignee&quot;: &quot;King-Of-End&quot;
+-   }
+- }</component>
+--  <component name="GithubPullRequestsUISettings"><![CDATA[{
+--  "selectedUrlAndAccountId": {
+--    "url": "https://github.com/King-Of-End/Telethon.git",
+--    "accountId": "7244090b-5e35-476b-8024-b963118c2e07"
+-+  <component name="GithubPullRequestsUISettings">{
+-+  &quot;selectedUrlAndAccountId&quot;: {
+-+    &quot;url&quot;: &quot;https://github.com/King-Of-End/Telethon.git&quot;,
+-+    &quot;accountId&quot;: &quot;7244090b-5e35-476b-8024-b963118c2e07&quot;
+-   }
+--}]]></component>
+-+}</component>
+-   <component name="ProjectColorInfo">{
+-   &quot;associatedIndex&quot;: 1
+- }</component>
+-@@ -53,6 +54,7 @@
+-     "Python.main.executor": "Run",
+-     "RunOnceActivity.ShowReadmeOnStart": "true",
+-     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+-+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+-     "RunOnceActivity.git.unshallow": "true",
+-     "git-widget-placeholder": "main",
+-     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+-@@ -89,7 +91,15 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1760692409517</updated>
+-     </task>
+--    <option name="localTasksCounter" value="3" />
+-+    <task id="LOCAL-00003" summary="Сделал основу графа и его визуализацию">
+-+      <option name="closed" value="true" />
+-+      <created>1760707907661</created>
+-+      <option name="number" value="00003" />
+-+      <option name="presentableId" value="LOCAL-00003" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1760707907661</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="4" />
+-     <servers />
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-Index: logs.txt
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>niktont_n: b ghfrnbrf\n�������: ����\n�������: ���� �������?\nLeeze1: ������\nniktont_n: None\nLeeze1: None\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/logs.txt b/logs.txt
+---- a/logs.txt	(revision 2c6874253a09c5783f7a7cf333fc60e5b862d1c5)
+-+++ b/logs.txt	(date 1760709905907)
+-@@ -4,3 +4,4 @@
+- Leeze1: ������
+- niktont_n: None
+- Leeze1: None
+-+Дмитрий: .
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43__Changes_.xml	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
++++ /dev/null	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
+@@ -1,12 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]" date="1761075827354" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 21.10.2025 22:43 [Changes]" />
+-  <binary>
+-    <option name="BEFORE_PATH" value="my_account.session-journal" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="my_account.session" />
+-    <option name="AFTER_PATH" value="my_account.session" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/my_account.session" />
+-  </binary>
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"Доделал функцию get_type и провёл базовые тесты\">\n      <change afterPath=\"$PROJECT_DIR$/tasks.py\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/telegram.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Graph.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Graph.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/logs.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/logs.txt\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/main.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/main.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/parsers.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/parsers.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/prompts.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/prompts.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/states.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/states.py\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;King-Of-End&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/King-Of-End/Telethon.git&quot;,\n    &quot;accountId&quot;: &quot;7244090b-5e35-476b-8024-b963118c2e07&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 1\n}</component>\n  <component name=\"ProjectId\" id=\"33v6JPCHWWAoSzbWNiRA6jKJlmb\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\n    &quot;Python.Graph.executor&quot;: &quot;Run&quot;,\n    &quot;Python.LLM.executor&quot;: &quot;Run&quot;,\n    &quot;Python.main.executor&quot;: &quot;Run&quot;,\n    &quot;Python.prompts.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/user/PycharmProjects/Telethon/main.py&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\">\n      <module name=\"Telethon\" />\n      <option name=\"ENV_FILES\" value=\"\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"SDK_NAME\" value=\"Python 3.11 (Telethon)\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"\" />\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b4b827aa-ae05-44c1-a492-71c7ac23cc36\" name=\"Changes\" comment=\"\" />\n      <created>1760185125242</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1760185125242</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760691447193</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760691447193</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Добавил файл с зависимостями\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1760692409517</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1760692409517</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Доделал функцию get_type и провёл базовые тесты\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1761311289299</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1761311289299</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Доделал функцию get_type и провёл базовые тесты\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1761311298349</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1761311298349</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"5\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"Добавил файл с зависимостями\" />\n    <MESSAGE value=\"Сделал основу графа и его визуализацию\" />\n    <MESSAGE value=\"Доделал функцию get_type и провёл базовые тесты\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Доделал функцию get_type и провёл базовые тесты\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 824c143d00892f8f0ae6de7ff03b3e26aa687ad5)
++++ b/.idea/workspace.xml	(date 1762522498346)
+@@ -4,16 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Доделал функцию get_type и провёл базовые тесты">
+-      <change afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/telegram.py" afterDir="false" />
++    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Начал делать код обработки задач">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/my_account.session" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_10_2025_22_43__Changes_.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/my_account.session" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/my_account.session-journal" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025,_14_56_[Changes]1/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2025__14_56__Changes_1.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/parsers.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsers.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompts.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/states.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -138,7 +137,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1761311298349</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Начал делать код обработки задач">
++      <option name="closed" value="true" />
++      <created>1761659320817</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1761659320817</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+@@ -146,6 +153,7 @@
+     <MESSAGE value="Добавил файл с зависимостями" />
+     <MESSAGE value="Сделал основу графа и его визуализацию" />
+     <MESSAGE value="Доделал функцию get_type и провёл базовые тесты" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Доделал функцию get_type и провёл базовые тесты" />
++    <MESSAGE value="Начал делать код обработки задач" />
++    <option name="LAST_COMMIT_MESSAGE" value="Начал делать код обработки задач" />
+   </component>
+ </project>
+\ No newline at end of file
