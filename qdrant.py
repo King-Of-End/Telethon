@@ -1,18 +1,20 @@
 import datetime
+from typing import List
 
 from llama_index.core.node_parser import SentenceSplitter
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document, load_index_from_storage
+# from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document, load_index_from_storage, Response
+from llama_index.core.schema import NodeWithScore
 from llama_index.vector_stores.qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance, PointStruct
 
-Settings.embed_model = HuggingFaceEmbedding(
-    model_name="intfloat/e5-large-v2",
-    embed_batch_size=32,
-    normalize=True,
-    query_instruction="passage: "
-)
+# Settings.embed_model = HuggingFaceEmbedding(
+#     model_name="intfloat/e5-large-v2",
+#     embed_batch_size=32,
+#     normalize=True,
+#     query_instruction="passage: "
+# )
 
 
 class QDrantVectorDatabase:
@@ -66,13 +68,14 @@ class QDrantVectorDatabase:
             paragraph_separator="\n\n"
         )
 
-    def add_task(self, task: str, time: datetime.datetime) -> None:
+    def add_task(self, task: str, date: str, time: str, priority: int) -> None:
         """Добавление задачи в векторную базу данных"""
         if not task.strip():
             return
         metadata = {
-            'time': str(time),
-            'priority': int,
+            'date': date,
+            'time': time,
+            'priority': priority,
         }
         doc = Document(
             text=task,
@@ -92,10 +95,14 @@ class QDrantVectorDatabase:
             delete_from_docstore=True
         )
 
-    def get_task(self, query: str, k: int) -> str:
+    def get_task(self, query: str, k: int = 3) -> List[NodeWithScore]:
         """Получение задачи из векторной базы данных"""
         query_engine = self.index.as_query_engine(
-
+            similarity_top_k=k
         )
 
+        return query_engine.query(query).source_nodes
+
+
 vector = QDrantVectorDatabase()
+vector.get_task('привет')
