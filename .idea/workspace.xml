@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Продолжение интеграции векторной базы данных">
-      <change afterPath="$PROJECT_DIR$/initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Telethon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Telethon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Закончил работу с векторной базой данных">
+      <change afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qdrant.py" beforeDir="false" afterPath="$PROJECT_DIR$/qdrant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_account.session" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_session.session" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pip.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/state_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled.ui" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +175,23 @@
       <option name="project" value="LOCAL" />
       <updated>1762783074736</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Закончил работу с векторной базой данных">
+      <option name="closed" value="true" />
+      <created>1762873840902</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1762873840902</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Закончил работу с векторной базой данных">
+      <option name="closed" value="true" />
+      <created>1762873858697</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1762873858697</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -184,6 +200,7 @@
     <MESSAGE value="Сделал основу графа и его визуализацию" />
     <MESSAGE value="Доделал функцию get_type и провёл базовые тесты" />
     <MESSAGE value="Продолжение интеграции векторной базы данных" />
-    <option name="LAST_COMMIT_MESSAGE" value="Продолжение интеграции векторной базы данных" />
+    <MESSAGE value="Закончил работу с векторной базой данных" />
+    <option name="LAST_COMMIT_MESSAGE" value="Закончил работу с векторной базой данных" />
   </component>
 </project>
