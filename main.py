@@ -1,7 +1,9 @@
 from Graph import *
 from states import *
+from initial import check_everything
 
 def main():
+    check_everything()
     initial_state = MessageState(user_message='привет')
     res = app.invoke(initial_state)
     try:

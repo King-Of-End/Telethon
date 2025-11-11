@@ -1,34 +1,37 @@
-import datetime
 from typing import List
 
 from llama_index.core.node_parser import SentenceSplitter
-# from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document, load_index_from_storage, Response
 from llama_index.core.schema import NodeWithScore
 from llama_index.vector_stores.qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
-from qdrant_client.models import VectorParams, Distance, PointStruct
+from qdrant_client.models import Distance
 
-# Settings.embed_model = HuggingFaceEmbedding(
-#     model_name="intfloat/e5-large-v2",
-#     embed_batch_size=32,
-#     normalize=True,
-#     query_instruction="passage: "
-# )
+Settings.embed_model = HuggingFaceEmbedding(
+    model_name="intfloat/e5-large-v2",
+    embed_batch_size=32,
+    normalize=True,
+    query_instruction="passage: "
+)
 
 
 class QDrantVectorDatabase:
     def __init__(self) -> None:
-        self.client = QdrantClient(
-            url="http://localhost:6333",
-            grpc_port=6334,
-            prefer_grpc=True
-        )
-
         self.collection_name = 'tasks'
+        try:
+            self.client = QdrantClient(
+                url="http://localhost:6333",
+                grpc_port=6334,
+                prefer_grpc=True
+            )
+            if not self.client.collection_exists(self.collection_name):
+                self.client.create_collection(self.collection_name)
 
-        if not self.client.collection_exists(self.collection_name):
-            self.client.create_collection(self.collection_name)
+        except Exception:
+            self.client = QdrantClient(path="/tmp/qdrant_local")
+            if not self.client.collection_exists(self.collection_name):
+                self.client.create_collection(self.collection_name)
 
         self.vector_store = QdrantVectorStore(
             client=self.client,
@@ -68,10 +71,14 @@ class QDrantVectorDatabase:
             paragraph_separator="\n\n"
         )
 
-    def add_task(self, task: str, date: str, time: str, priority: int) -> None:
-        """Добавление задачи в векторную базу данных"""
+    def add_task(self,
+                 task: str | None = None,
+                 date: str | None = None,
+                 time: str | None = None,
+                 priority: int | None = None) -> str | None:
+        """Добавление задачи в векторную базу данных, возвращает id документа при успехе"""
         if not task.strip():
-            return
+            return None
         metadata = {
             'date': date,
             'time': time,
@@ -86,7 +93,7 @@ class QDrantVectorDatabase:
             self.index.insert(nodes)
         except Exception:
             pass
-        return
+        return doc.doc_id
 
     def delete_task(self, task_id: int) -> None:
         """Удаление точек по id задачи"""
@@ -102,7 +109,3 @@ class QDrantVectorDatabase:
         )
 
         return query_engine.query(query).source_nodes
-
-
-vector = QDrantVectorDatabase()
-vector.get_task('привет')

@@ -1,3 +1,4 @@
+langchain-ollama
 python-dotenv
 langchain-openai
 langgraph
@@ -8,3 +9,4 @@ qdrant-client
 llama-index-core
 llama-index-embeddings-huggingface
 llama-index-vector-stores-qdrant
+llama-index-embeddings-openai
