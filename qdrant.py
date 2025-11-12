@@ -1,18 +1,17 @@
 from typing import List
 
 from llama_index.core.node_parser import SentenceSplitter
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document, load_index_from_storage, Response
+from llama_index.embeddings.ollama import OllamaEmbedding
+from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document, load_index_from_storage
 from llama_index.core.schema import NodeWithScore
 from llama_index.vector_stores.qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance
 
-Settings.embed_model = HuggingFaceEmbedding(
-    model_name="intfloat/e5-large-v2",
-    embed_batch_size=32,
-    normalize=True,
-    query_instruction="passage: "
+Settings.embed_model = OllamaEmbedding(
+    model_name="nomic-embed-text",
+    base_url='http://star-curriculum.gl.at.ply.gg:58596/api',
+    embed_batch_size=10,
 )
 
 
@@ -22,8 +21,6 @@ class QDrantVectorDatabase:
         try:
             self.client = QdrantClient(
                 url="http://localhost:6333",
-                grpc_port=6334,
-                prefer_grpc=True
             )
             if not self.client.collection_exists(self.collection_name):
                 self.client.create_collection(self.collection_name)
@@ -109,3 +106,5 @@ class QDrantVectorDatabase:
         )
 
         return query_engine.query(query).source_nodes
+
+QDrantVectorDatabase()

@@ -1,6 +1,9 @@
-with open('pip.txt', encoding='utf16') as f:
-    a = f.readlines()
-print(a)
-with open('pip.txt', 'w', encoding='utf16') as f:
-    for x in a:
-        f.write(x.split('==')[0] + '\n')
+from langchain_ollama import OllamaLLM
+
+llm = OllamaLLM(
+    model='gpt-oss:20b',
+    validate_model_on_init=True,
+    base_url='http://star-curriculum.gl.at.ply.gg:58596/api'
+)
+
+print(llm.invoke('Привет!'))

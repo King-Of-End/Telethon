@@ -18,7 +18,6 @@ def check_everything() -> None:
     try:
         from typing import List
         from llama_index.core.node_parser import SentenceSplitter
-        from llama_index.embeddings.huggingface import HuggingFaceEmbedding
         from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document, load_index_from_storage, \
             Response
         from llama_index.core.schema import NodeWithScore
@@ -39,6 +38,7 @@ def check_everything() -> None:
         from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
         from typing import List
         from pydantic import BaseModel
+        from llama_index.embeddings.huggingface import HuggingFaceEmbedding
         Settings.embed_model = HuggingFaceEmbedding(
             model_name="intfloat/e5-large-v2",
             embed_batch_size=32,
@@ -47,6 +47,7 @@ def check_everything() -> None:
         )
     except ModuleNotFoundError:
         try:
+            subprocess.run('python.exe -m pip install --upgrade pip', shell=True)
             subprocess.run('pip install -r requirements.txt --no-cache-dir', shell=True)
         except ImportError:
             print('Please install requirements.txt')
