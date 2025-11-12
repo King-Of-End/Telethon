@@ -10,7 +10,7 @@ from qdrant_client.models import Distance
 
 Settings.embed_model = OllamaEmbedding(
     model_name="nomic-embed-text",
-    base_url='http://star-curriculum.gl.at.ply.gg:58596/api',
+    base_url='http://star-curriculum.gl.at.ply.gg:58596',
     embed_batch_size=10,
 )
 
@@ -20,15 +20,24 @@ class QDrantVectorDatabase:
         self.collection_name = 'tasks'
         try:
             self.client = QdrantClient(
-                url="http://localhost:6333",
+                url="reviews-phones.gl.at.ply.gg:42376",
             )
             if not self.client.collection_exists(self.collection_name):
                 self.client.create_collection(self.collection_name)
-
-        except Exception:
-            self.client = QdrantClient(path="/tmp/qdrant_local")
-            if not self.client.collection_exists(self.collection_name):
-                self.client.create_collection(self.collection_name)
+            print('online')
+        except:
+            try:
+                self.client = QdrantClient(
+                    url="http://localhost:6333",
+                )
+                if not self.client.collection_exists(self.collection_name):
+                    self.client.create_collection(self.collection_name)
+                print('local')
+            except:
+                self.client = QdrantClient(path="/tmp/qdrant_local")
+                if not self.client.collection_exists(self.collection_name):
+                    self.client.create_collection(self.collection_name)
+                print('local -no-save')
 
         self.vector_store = QdrantVectorStore(
             client=self.client,
@@ -43,24 +52,31 @@ class QDrantVectorDatabase:
         try:
             self.storage_context = StorageContext.from_defaults(
                 vector_store=self.vector_store,
-                persist_dir=r'C:\Users\NIKITA\PycharmProjects\Telethon\databases\index'
+                persist_dir=r'C:databases\index'
             )
-        except FileNotFoundError:
+            print('found existing vector')
+        except LookupError:
             self.storage_context = StorageContext.from_defaults(
                 vector_store=self.vector_store,
             )
             self.storage_context.persist(
-                persist_dir=r'C:\Users\NIKITA\PycharmProjects\Telethon\databases\index'
+                persist_dir=r'databases\index'
             )
-
+            print('created new vector')
         try:
             self.index = load_index_from_storage(self.storage_context)
-        except ValueError:
+            print('found existing index')
+        except ValueError as e:
+            print(e)
             self.index = VectorStoreIndex.from_documents(
                 documents=[],
                 storage_context=self.storage_context,
                 show_progress=True
             )
+            self.storage_context.persist(
+                persist_dir=r'databases\index'
+            )
+            print('created new index')
 
         self.node_parser = SentenceSplitter(
             chunk_size=512,
@@ -106,5 +122,6 @@ class QDrantVectorDatabase:
         )
 
         return query_engine.query(query).source_nodes
+
 
 QDrantVectorDatabase()

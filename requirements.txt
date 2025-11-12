@@ -7,6 +7,5 @@ langchain-core
 langchain
 qdrant-client
 llama-index-core
-llama-index-embeddings-huggingface
 llama-index-vector-stores-qdrant
-llama-index-embeddings-openai
+PyQt6
