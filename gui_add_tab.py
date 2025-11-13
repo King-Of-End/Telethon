@@ -5,6 +5,14 @@ from PyQt6.QtGui import QFont
 
 from gui import TaskManagerUI
 
+from tools import functions
+
+add_task = functions['add_task']
+search_tasks_database = functions['search_tasks_database']
+update_task = functions['update_task']
+delete_task = functions['delete_task']
+search_similar = functions['search_similar']
+
 
 class AddTab(QWidget):
     def __init__(self, _parent: TaskManagerUI):
@@ -22,7 +30,7 @@ class AddTab(QWidget):
 
         self.add_task_input = QLineEdit()
         self.add_task_input.setPlaceholderText("Описание задачи")
-        form_layout.addRow("Задача*:", self.add_task_input)
+        form_layout.addRow("Задача:", self.add_task_input)
 
         self.add_date_input = QDateEdit()
         self.add_date_input.setCalendarPopup(True)
@@ -81,7 +89,13 @@ class AddTab(QWidget):
     # Вкладка 2: Добавление
     def on_add_task_clicked(self):
         task = self.add_task_input.text()
+        date = str(self.add_date_input.date().toPyDate())
+        raw_time = self.add_time_input.time().toPyTime()
+        time = str(':'.join([str(raw_time.hour), str(raw_time.minute)]))
+        priority = self.add_priority_input.value()
         self._parent.statusBar().showMessage(f"Добавление задачи: {task}")
+        res = add_task(task, date, time, priority)
+        self._parent.statusBar().showMessage(res)
 
     def on_add_clear_clicked(self):
         """Очистка полей добавления"""

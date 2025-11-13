@@ -8,6 +8,7 @@ from qdrant import QDrantVectorDatabase
 tools: List[StructuredTool] = list()
 functions: dict[str, Callable] = dict()
 database: QDrantVectorDatabase = QDrantVectorDatabase()
+sql_db: str = 'databases/sqlite/tasks.sqlite'
 
 
 def add(func: Any) -> Callable:
@@ -43,16 +44,16 @@ def add_task(task: str,
         return 'Неуспешно'
 
     request: str = f'''INSERT INTO active_tasks(task, date, time, priority, doc_id) 
-    VALUES({task}, {date}, {time}, {priority}, {doc_id})'''
+    VALUES("{task}", "{date}", "{time}", {priority}, "{doc_id}")'''
 
     try:
-        con = sqlite3.connect('tasks.sqlite')
+        con = sqlite3.connect(sql_db)
         cur = con.cursor()
         cur.execute(request)
         con.commit()
-        database.add_task(task, date, time, priority)
         return 'Успешно'
     except sqlite3.DatabaseError:
+        database.delete_task(doc_id)
         return 'Неуспешно'
 
 
@@ -80,7 +81,7 @@ def search_tasks_database(task: str | None = None,
     if priority: request += f'''{priority=} '''
 
     try:
-        con = sqlite3.connect('tasks.sqlite')
+        con = sqlite3.connect(sql_db)
         cur = con.cursor()
         res = cur.execute(request).fetchall()
         ans: List[dict[str, str | int]] = list()
@@ -114,7 +115,7 @@ def update_task(task_id: int,
     doc_id_request = f'''SELECT doc_id FROM active_tasks WHERE id={task_id}'''
 
     try:
-        con = sqlite3.connect('tasks.sqlite')
+        con = sqlite3.connect(sql_db)
         cur = con.cursor()
         doc_id = cur.execute(doc_id_request).fetchone()[0]
     except Exception:
@@ -131,7 +132,7 @@ def update_task(task_id: int,
     request += f'''WHERE id={task_id}'''
 
     try:
-        con = sqlite3.connect('tasks.sqlite')
+        con = sqlite3.connect(sql_db)
         cur = con.cursor()
         cur.execute(request)
         con.commit()
@@ -155,7 +156,7 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
     del_request: str = f'''DELETE from active_tasks where id={task_id}'''
 
     try:
-        con = sqlite3.connect('tasks.sqlite')
+        con = sqlite3.connect(sql_db)
         cur = con.cursor()
         del_task = cur.execute(get_request).fetchone()
         database.delete_task(del_task[-1])

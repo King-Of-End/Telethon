@@ -24,7 +24,6 @@ class QDrantVectorDatabase:
             )
             if not self.client.collection_exists(self.collection_name):
                 self.client.create_collection(self.collection_name)
-            print('online')
         except:
             try:
                 self.client = QdrantClient(
@@ -32,12 +31,10 @@ class QDrantVectorDatabase:
                 )
                 if not self.client.collection_exists(self.collection_name):
                     self.client.create_collection(self.collection_name)
-                print('local')
             except:
                 self.client = QdrantClient(path="/tmp/qdrant_local")
                 if not self.client.collection_exists(self.collection_name):
                     self.client.create_collection(self.collection_name)
-                print('local -no-save')
 
         self.vector_store = QdrantVectorStore(
             client=self.client,
@@ -54,7 +51,6 @@ class QDrantVectorDatabase:
                 vector_store=self.vector_store,
                 persist_dir=r'C:databases\index'
             )
-            print('found existing vector')
         except LookupError:
             self.storage_context = StorageContext.from_defaults(
                 vector_store=self.vector_store,
@@ -62,10 +58,8 @@ class QDrantVectorDatabase:
             self.storage_context.persist(
                 persist_dir=r'databases\index'
             )
-            print('created new vector')
         try:
             self.index = load_index_from_storage(self.storage_context)
-            print('found existing index')
         except ValueError as e:
             print(e)
             self.index = VectorStoreIndex.from_documents(
@@ -76,7 +70,6 @@ class QDrantVectorDatabase:
             self.storage_context.persist(
                 persist_dir=r'databases\index'
             )
-            print('created new index')
 
         self.node_parser = SentenceSplitter(
             chunk_size=512,
@@ -108,10 +101,10 @@ class QDrantVectorDatabase:
             pass
         return doc.doc_id
 
-    def delete_task(self, task_id: int) -> None:
+    def delete_task(self, task_id: str) -> None:
         """Удаление точек по id задачи"""
         self.index.delete_ref_doc(
-            ref_doc_id=str(task_id),
+            ref_doc_id=task_id,
             delete_from_docstore=True
         )
 
@@ -123,5 +116,3 @@ class QDrantVectorDatabase:
 
         return query_engine.query(query).source_nodes
 
-
-QDrantVectorDatabase()

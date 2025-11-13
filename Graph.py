@@ -1,6 +1,5 @@
 from langgraph.graph import StateGraph, START
 
-import telegram
 from tasks import TASKS
 from LLM import *
 from prompts import *

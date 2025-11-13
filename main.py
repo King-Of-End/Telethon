@@ -1,16 +1,7 @@
-from Graph import *
-from states import *
-from initial import check_everything
+from gui import start_gui
 
 def main():
-    check_everything()
-    initial_state = MessageState(user_message='привет')
-    res = app.invoke(initial_state)
-    try:
-        with open('state_logs.txt', 'a', encoding='utf-8') as f:
-            f.write('-' * 50 + '\n' + str(initial_state) + '\n' + str(res) + '\n')
-    except Exception as e:
-        print(e)
+    start_gui()
 
 if __name__ == '__main__':
     main()
