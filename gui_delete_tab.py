@@ -1,8 +1,12 @@
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton,
-                             QTableWidget, QSpinBox, QGroupBox, QFormLayout, QHeaderView, QMessageBox)
+                             QTableWidget, QSpinBox, QGroupBox, QFormLayout, QHeaderView, QMessageBox, QTableWidgetItem)
 from PyQt6.QtGui import QFont
 
-from gui import TaskManagerUI
+from gui import TaskManagerUI, draw_to_table, sql_db
+import sqlite3
+from tools import functions
+
+delete_task = functions['delete_task']
 
 
 class DeleteTab(QWidget):
@@ -77,11 +81,97 @@ class DeleteTab(QWidget):
         deleted_group.setLayout(deleted_layout)
         layout.addWidget(deleted_group)
 
+        # Загружаем удаленные задачи при инициализации
+        self.on_delete_refresh_clicked()
+
     def on_delete_task_clicked(self):
         """Обработчик удаления задачи"""
         task_id = self.delete_id_input.value()
-        # Здесь будет логика удаления
-        self._parent.statusBar().showMessage(f"Удаление задачи с ID: {task_id}")
+        search_text = self.delete_search_input.text()
+        priority = self.delete_priority_input.value()
+
+        try:
+            con = sqlite3.connect(sql_db)
+            cur = con.cursor()
+
+            # Определяем, какой критерий используется
+            if task_id > 0:
+                # Удаление по ID
+                # Проверяем существование задачи
+                check_request = f'''SELECT id FROM active WHERE id={task_id}'''
+                result = cur.execute(check_request).fetchone()
+
+                if result:
+                    res = delete_task(task_id)
+                    self._parent.statusBar().showMessage(f"Удаление задачи ID {task_id}: {res}")
+
+                    if res == "Успешно":
+                        self.on_delete_refresh_clicked()
+                else:
+                    self._parent.statusBar().showMessage(f"Задача с ID {task_id} не найдена")
+                    QMessageBox.warning(self, "Предупреждение", f"Задача с ID {task_id} не существует")
+
+            elif search_text:
+                # Удаление по тексту задачи
+                find_request = f'''SELECT id FROM active WHERE task LIKE "%{search_text}%"'''
+                results = cur.execute(find_request).fetchall()
+
+                if results:
+                    # Подтверждение удаления
+                    reply = QMessageBox.question(
+                        self,
+                        'Подтверждение удаления',
+                        f'Найдено задач: {len(results)}. Удалить все?',
+                        QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+                    )
+
+                    if reply == QMessageBox.StandardButton.Yes:
+                        success_count = 0
+                        for row in results:
+                            res = delete_task(row[0])
+                            if res == "Успешно":
+                                success_count += 1
+
+                        self._parent.statusBar().showMessage(f"Удалено задач: {success_count} из {len(results)}")
+                        self.on_delete_refresh_clicked()
+                else:
+                    self._parent.statusBar().showMessage("Задачи не найдены")
+                    QMessageBox.information(self, "Информация", "Задачи с таким текстом не найдены")
+
+            elif priority > 0:
+                # Удаление по приоритету
+                find_request = f'''SELECT id FROM active WHERE priority={priority}'''
+                results = cur.execute(find_request).fetchall()
+
+                if results:
+                    # Подтверждение удаления
+                    reply = QMessageBox.question(
+                        self,
+                        'Подтверждение удаления',
+                        f'Найдено задач с приоритетом {priority}: {len(results)}. Удалить все?',
+                        QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+                    )
+
+                    if reply == QMessageBox.StandardButton.Yes:
+                        success_count = 0
+                        for row in results:
+                            res = delete_task(row[0])
+                            if res == "Успешно":
+                                success_count += 1
+
+                        self._parent.statusBar().showMessage(f"Удалено задач: {success_count} из {len(results)}")
+                        self.on_delete_refresh_clicked()
+                else:
+                    self._parent.statusBar().showMessage("Задачи не найдены")
+                    QMessageBox.information(self, "Информация", f"Задачи с приоритетом {priority} не найдены")
+            else:
+                QMessageBox.warning(self, "Предупреждение", "Укажите хотя бы один критерий для удаления")
+
+            con.close()
+
+        except Exception as e:
+            self._parent.statusBar().showMessage(f"Ошибка при удалении: {str(e)}")
+            QMessageBox.critical(self, "Ошибка", f"Произошла ошибка: {str(e)}")
 
     def on_delete_clear_clicked(self):
         """Очистка условий удаления"""
@@ -92,15 +182,65 @@ class DeleteTab(QWidget):
 
     def on_delete_refresh_clicked(self):
         """Обновление таблицы удаленных"""
-        # Здесь будет логика обновления
-        self._parent.statusBar().showMessage("Обновление таблицы удаленных...")
+        try:
+            con = sqlite3.connect(sql_db)
+            cur = con.cursor()
+
+            request = '''SELECT id, task, date, time, priority, doc_id FROM deleted'''
+            results = cur.execute(request).fetchall()
+
+            self.delete_table.setRowCount(len(results))
+
+            for row_idx, row_data in enumerate(results):
+                for col_idx, cell_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(cell_data))
+                    self.delete_table.setItem(row_idx, col_idx, item)
+
+            self.delete_table.resizeColumnsToContents()
+            self.delete_count_label.setText(f"Удалено записей: {len(results)}")
+
+            self._parent.statusBar().showMessage(f"Загружено удаленных задач: {len(results)}")
+            con.close()
+
+        except Exception as e:
+            self._parent.statusBar().showMessage(f"Ошибка при загрузке: {str(e)}")
 
     def on_restore_task_clicked(self):
         """Восстановление выбранной задачи"""
         selected_rows = self.delete_table.selectionModel().selectedRows()
+
         if selected_rows:
             row = selected_rows[0].row()
-            # Здесь будет логика восстановления
-            self._parent.statusBar().showMessage(f"Восстановление задачи из строки {row}")
+
+            # Получаем данные задачи
+            task_id = int(self.delete_table.item(row, 0).text())
+            task = self.delete_table.item(row, 1).text()
+            date = self.delete_table.item(row, 2).text()
+            time = self.delete_table.item(row, 3).text()
+            priority = int(self.delete_table.item(row, 4).text())
+            doc_id = self.delete_table.item(row, 5).text()
+
+            try:
+                con = sqlite3.connect(sql_db)
+                cur = con.cursor()
+
+                # Восстанавливаем задачу
+                restore_request = f'''INSERT INTO active(task, date, time, priority, doc_id) 
+                                     VALUES("{task}", "{date}", "{time}", {priority}, "{doc_id}")'''
+                cur.execute(restore_request)
+
+                # Удаляем из таблицы deleted
+                delete_request = f'''DELETE FROM deleted WHERE id={task_id}'''
+                cur.execute(delete_request)
+
+                con.commit()
+                con.close()
+
+                self._parent.statusBar().showMessage(f"Задача ID {task_id} восстановлена")
+                self.on_delete_refresh_clicked()
+
+            except Exception as e:
+                self._parent.statusBar().showMessage(f"Ошибка при восстановлении: {str(e)}")
+                QMessageBox.critical(self, "Ошибка", f"Не удалось восстановить задачу: {str(e)}")
         else:
             QMessageBox.warning(self, "Предупреждение", "Выберите задачу для восстановления")

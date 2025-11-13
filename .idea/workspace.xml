@@ -4,68 +4,180 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Начал тестирование удаленного подключения">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LLM.py" beforeDir="false" afterPath="$PROJECT_DIR$/LLM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/databases/sqlite/tasks.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/databases/sqlite/tasks.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/OPTIONS-000019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/OPTIONS-000019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/OPTIONS-000019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/OPTIONS-000019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/OPTIONS-000019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/OPTIONS-000019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/OPTIONS-000019" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/000016.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/CURRENT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/MANIFEST-000017" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/OPTIONS-000015" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/OPTIONS-000019" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/newest_clocks.json" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/newest_clocks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/00ec13e5-a284-43de-9887-01af8e8cd4fc/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/33089f1c-76af-4df4-9b11-1214c71f0bf6/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4906db2e-8e38-4d09-976e-38d757bf51fa/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/4f3f2891-e1d1-4fc6-a713-2329463d21fd/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/63611ff4-2598-4e77-a96a-ed2c8359c875/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9db509f5-095b-4f5b-9384-6b7aa7c45f77/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/9f845411-e931-4b71-bf75-b86b51501f34/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/000024.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/CURRENT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/IDENTITY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/LOCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/LOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/MANIFEST-000025" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/OPTIONS-000023" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/OPTIONS-000027" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_index/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_storage/bitmask.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_storage/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_storage/gaps.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_storage/page_0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/payload_storage/tracker.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/segment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/vector_storage/deleted/flags_a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/vector_storage/deleted/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/vector_storage/vectors/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/vector_storage/vectors/status.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/segments/d5fd7500-6eb9-4742-ad4c-81090634c974/version.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/wal/first-index" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/wal/first-index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/wal/open-1" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/wal/open-1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph.png" beforeDir="false" afterPath="$PROJECT_DIR$/graph.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_add_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_add_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_ai_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_ai_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_search_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_search_tab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/0/wal/open-2" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/0/wal/open-2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/vector/collections/tasks/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/databases/vector/collections/tasks/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui_create_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_create_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui_delete_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_delete_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui_vector_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_vector_tab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qdrant.py" beforeDir="false" afterPath="$PROJECT_DIR$/qdrant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -334,7 +446,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762922146809</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС">
+      <option name="closed" value="true" />
+      <created>1763060145413</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1763060145413</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -345,15 +465,16 @@
     <MESSAGE value="Продолжение интеграции векторной базы данных" />
     <MESSAGE value="Закончил работу с векторной базой данных" />
     <MESSAGE value="Начал тестирование удаленного подключения" />
-    <option name="LAST_COMMIT_MESSAGE" value="Начал тестирование удаленного подключения" />
+    <MESSAGE value="ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС" />
+    <option name="LAST_COMMIT_MESSAGE" value="ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tools.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/gui_vector_tab.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

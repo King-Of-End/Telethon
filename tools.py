@@ -18,10 +18,10 @@ def add_func(func: Any) -> Callable:
     functions[func.__name__] = func
     tools.append(
         FunctionTool.from_defaults(
-        fn=func,
-        description=func.__doc__,
-        name=func.__name__,
-    ))
+            fn=func,
+            description=func.__doc__,
+            name=func.__name__,
+        ))
     return func
 
 
@@ -50,54 +50,60 @@ def add_task(task: str,
         cur = con.cursor()
         cur.execute(request)
         con.commit()
+        con.close()
         return 'Успешно'
     except sqlite3.DatabaseError:
         database.delete_task(doc_id)
         return 'Неуспешно'
 
+
 @add_func
 def search_tasks_database(task: str | None = None,
-                          date: str | None = None,
+                          date: list | None = None,
                           time: str | None = None,
-                          priority: int | list | None = None
-                          ) -> List[dict[str, str | int]] | Literal['Неуспешно']:
+                          priority: list | None = None
+                          ) -> List[tuple] | Literal['Неуспешно']:
     """Производит поиск по базе данных принимая одно или несколько следующих значений
     Входные данные:
     task: str | None (текст задачи)
-    date: str | None (формат YYYY-MM-DD)
+    date: list | None (список: [дата_от, дата_до, '>'] или дата строкой)
     time: str | None (формат HH:MM)
-    priority: int | None (от 1 до 10)
-    Все входные данные должны соответствовать CRUD запросам к sqlite базам данных
+    priority: list | None (список: [приоритет_от, приоритет_до, '>'] или число)
 
     Возвращает список с результатами поиска """
 
-    request: str = f'''SELECT task, date, time, priority FROM active '''
-    if task or date or time or priority: request += 'WHERE '
-    if task: request += f''' {task=} AND'''
-    if date:
-        if '>' not in date:
-            request += f''' {date=} AND'''
-        else:
-            request += f''' date>{date[0]} AND date<{date[1]} AND'''
-    if time: request += f''' {time=} AND'''
-    if priority:
-        if '>' not in priority:
-            request += f''' {priority=} '''
-        else:
-            request += f''' priority>{priority[0]} AND priority<{priority[1]} '''
+    request: str = f'''SELECT id, task, date, time, priority, doc_id FROM active '''
+    conditions = []
 
-    request = request.strip('AND') + ' '
+    if task:
+        conditions.append(f'''task LIKE "%{task}%"''')
+
+    if date:
+        if isinstance(date, list) and len(date) == 3 and date[2] == '>':
+            conditions.append(f'''date >= "{date[0]}" AND date <= "{date[1]}"''')
+        elif isinstance(date, str):
+            conditions.append(f'''date = "{date}"''')
+
+    if time:
+        conditions.append(f'''time = "{time}"''')
+
+    if priority:
+        if isinstance(priority, list) and len(priority) == 3 and priority[2] == '>':
+            conditions.append(f'''priority >= {priority[0]} AND priority <= {priority[1]}''')
+        elif isinstance(priority, int):
+            conditions.append(f'''priority = {priority}''')
+
+    if conditions:
+        request += 'WHERE ' + ' AND '.join(conditions)
 
     try:
         con = sqlite3.connect(sql_db)
         cur = con.cursor()
         res = cur.execute(request).fetchall()
-        ans: List[dict[str, str | int]] = list()
-        for row in res:
-            ans.append(dict(row))
-        return ans
+        con.close()
+        return res
     except sqlite3.DatabaseError as e:
-        a = e
+        print(f"Database error: {e}")
         return 'Неуспешно'
 
 
@@ -106,46 +112,62 @@ def update_task(task_id: int,
                 task: str | None = None,
                 date: str | None = None,
                 time: str | None = None,
-                priority: int | None = None,) -> Literal['Успешно', 'Неуспешно']:
+                priority: int | None = None) -> Literal['Успешно', 'Неуспешно']:
     """Обновляет данные задачи в базе данных по id
     Входные данные:
     Обязательные:
     task_id: int (идентификатор задачи)
     Опциональные:
-    date: str | None (новая дата)
     task: str | None (новый текст задачи)
+    date: str | None (новая дата)
     time: str | None (новое время)
     priority: int | None (новый приоритет)
 
     Возвращает сообщение об успехе/неуспехе"""
 
-    doc_id_request = f'''SELECT doc_id FROM active WHERE id={task_id}'''
-
     try:
         con = sqlite3.connect(sql_db)
         cur = con.cursor()
-        doc_id = cur.execute(doc_id_request).fetchone()[0]
-    except Exception:
-        return 'Неуспешно'
 
-    database.delete_task(doc_id[-1])
-    database.add_task(task, date, time, priority)
+        # Получаем текущие данные задачи
+        get_request = f'''SELECT task, date, time, priority, doc_id FROM active WHERE id={task_id}'''
+        current_data = cur.execute(get_request).fetchone()
 
-    request: str = f'''UPDATE active 
-    SET '''
-    if date: request += f'''{date=} \n'''
-    if task: request += f'''{task=} \n'''
-    if priority: request += f'''{priority=} \n'''
-    request += f'''WHERE id={task_id}'''
+        if not current_data:
+            con.close()
+            return 'Неуспешно'
 
-    try:
-        con = sqlite3.connect(sql_db)
-        cur = con.cursor()
-        cur.execute(request)
+        current_task, current_date, current_time, current_priority, doc_id = current_data
+
+        # Используем текущие значения, если новые не указаны
+        new_task = task if task is not None else current_task
+        new_date = date if date is not None else current_date
+        new_time = time if time is not None else current_time
+        new_priority = priority if priority is not None else current_priority
+
+        # Удаляем старый документ из векторной БД
+        database.delete_task(doc_id)
+
+        # Добавляем новый документ в векторную БД
+        new_doc_id = database.add_task(new_task, new_date, new_time, new_priority)
+
+        if new_doc_id is None:
+            con.close()
+            return 'Неуспешно'
+
+        # Обновляем данные в SQL БД
+        update_request = f'''UPDATE active 
+        SET task="{new_task}", date="{new_date}", time="{new_time}", priority={new_priority}, doc_id="{new_doc_id}"
+        WHERE id={task_id}'''
+
+        cur.execute(update_request)
         con.commit()
-        database.delete_task(task_id)
+        con.close()
+
         return 'Успешно'
-    except sqlite3.DatabaseError:
+
+    except Exception as e:
+        print(f"Error updating task: {e}")
         return 'Неуспешно'
 
 
@@ -157,20 +179,37 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
 
     Возвращает сообщение об успехе/неуспехе"""
 
-    get_request: str = f'''SELECT * from active where id={task_id}'''
-    del_request: str = f'''DELETE from active where id={task_id}'''
-
     try:
         con = sqlite3.connect(sql_db)
         cur = con.cursor()
+
+        # Получаем данные задачи
+        get_request = f'''SELECT id, task, date, time, priority, doc_id FROM active WHERE id={task_id}'''
         del_task = cur.execute(get_request).fetchone()
-        database.delete_task(del_task[-1])
-        add_request: str = f'''INSERT INTO deleted VALUES({del_task})'''
+
+        if not del_task:
+            con.close()
+            return 'Неуспешно'
+
+        # Удаляем из векторной БД
+        database.delete_task(del_task[5])  # doc_id находится на 5-й позиции
+
+        # Добавляем в таблицу deleted
+        add_request = f'''INSERT INTO deleted(old_id, task, date, time, priority, doc_id) 
+                         VALUES({del_task[0]}, "{del_task[1]}", "{del_task[2]}", "{del_task[3]}", {del_task[4]}, "{del_task[5]}")'''
         cur.execute(add_request)
+
+        # Удаляем из active
+        del_request = f'''DELETE FROM active WHERE id={task_id}'''
         cur.execute(del_request)
+
         con.commit()
+        con.close()
+
         return 'Успешно'
-    except sqlite3.DatabaseError:
+
+    except Exception as e:
+        print(f"Error deleting task: {e}")
         return 'Неуспешно'
 
 
@@ -183,8 +222,43 @@ def search_similar(query: str, top_k: int = 1) -> List[dict]:
 
     Возвращает список с top_k количеством подходящих задач"""
     ans: List[dict] = []
-    for i in database.get_task(query, top_k):
-        ans.append(i.dict())
-    return ans
+    try:
+        results = database.get_task(query, top_k)
+        for i in results:
+            ans.append(i.dict())
+        return ans
+    except Exception as e:
+        print(f"Error in search_similar: {e}")
+        return []
 
 
+def create_clear_db():
+    con = sqlite3.connect(sql_db)
+    cur = con.cursor()
+    cur.execute('''CREATE TABLE if not exists active (
+    id       INTEGER PRIMARY KEY AUTOINCREMENT
+                     UNIQUE
+                     NOT NULL,
+    task     TEXT    NOT NULL,
+    date     TEXT,
+    time     TEXT,
+    priority INTEGER NOT NULL,
+    doc_id   TEXT    NOT NULL
+                     UNIQUE
+);
+''')
+    cur.execute('''CREATE TABLE deleted (
+    id       INTEGER PRIMARY KEY AUTOINCREMENT
+                     UNIQUE
+                     NOT NULL,
+    old_id   INTEGER NOT NULL,
+    task     TEXT    NOT NULL,
+    date     TEXT,
+    time     TEXT,
+    priority INTEGER NOT NULL,
+    doc_id   TEXT    NOT NULL
+);
+''')
+
+
+__all__ = ['tools', 'functions', 'database', 'create_clear_db']
