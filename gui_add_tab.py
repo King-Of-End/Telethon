@@ -3,7 +3,7 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout,QLabel, QLineEdit
 from PyQt6.QtCore import QDate, QTime
 from PyQt6.QtGui import QFont
 
-from gui import TaskManagerUI
+from gui import TaskManagerUI, draw_to_table
 
 from tools import functions
 
@@ -75,7 +75,7 @@ class AddTab(QWidget):
 
         self.add_table = QTableWidget()
         self.add_table.setColumnCount(6)
-        self.add_table.setHorizontalHeaderLabels(["ID", "Задача", "Дата", "Время", "Приоритет", "Doc ID"])
+        self.add_table.setHorizontalHeaderLabels(["ID", "Задача", "Дата", "Время", "Приоритет"])
         self.add_table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
         self.add_table.setAlternatingRowColors(True)
         self.add_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
@@ -84,7 +84,11 @@ class AddTab(QWidget):
 
         table_group.setLayout(table_layout)
         layout.addWidget(table_group)
+        self.update()
 
+    def update(self):
+        req = '''SELECT id, task, date, time, priority FROM active'''
+        draw_to_table(req, self.add_table)
 
     # Вкладка 2: Добавление
     def on_add_task_clicked(self):
@@ -107,5 +111,6 @@ class AddTab(QWidget):
 
     def on_add_refresh_clicked(self):
         """Обновление таблицы"""
-        # Здесь будет логика обновления
+        req = '''SELECT id, task, date, time, priority FROM active'''
+        self.update()
         self._parent.statusBar().showMessage("Обновление таблицы...")

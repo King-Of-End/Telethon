@@ -2,6 +2,10 @@ from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButt
 from PyQt6.QtGui import QFont
 from gui import TaskManagerUI
 
+from Graph import app
+from states import MessageState
+
+
 class AiTab(QWidget):
     def __init__(self, parent_: 'TaskManagerUI'):
         super().__init__()
@@ -62,6 +66,11 @@ class AiTab(QWidget):
     def on_ai_send_clicked(self):
         query = self.ai_input_text.toPlainText()
         mode = self.ai_mode_combo.currentText()
+        try:
+            res = app.invoke(MessageState(user_message=query))['message']
+        except Exception:
+            res = 'ИИ выдал ошибку'
+        self.ai_output_text.setPlainText(res)
         self.parent_.statusBar().showMessage(f"Отправка запроса в режиме: {mode}")
 
     def on_ai_clear_clicked(self):

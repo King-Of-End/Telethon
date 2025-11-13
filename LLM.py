@@ -1,55 +1,37 @@
-import os
 from dotenv import load_dotenv
 from langchain_ollama import OllamaLLM
-from langchain_openai import ChatOpenAI
+from llama_index.llms.ollama import Ollama
+from llama_index.core.agent import FunctionAgent
+from ollama import Client
+
+from prompts import task_system_prompt
+from tools import tools
 
 load_dotenv()
 
-base_local_llm = OllamaLLM(
-    model='qwen3:8b',
-    temperature=0,
-    reasoning=True,
-    repeat_last_n=-1,
-)
-
-base_global_llm = ChatOpenAI(
-    model='qwen/qwen3-235b-a22b:free',
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url="https://openrouter.ai/api/v1",
-    temperature=0,
-    reasoning_effort='high',
-)
-
-advanced_local_llm = OllamaLLM(
+local_llm = OllamaLLM(
     model='gpt-oss:20b',
     temperature=0,
     reasoning=True,
     repeat_last_n=-1,
 )
 
-tooled_local_llm = OllamaLLM(
-    model='qwen3:8b',
-    temperature=0,
-    reasoning=True,
-    repeat_last_n=-1,
-)
+client = Client(host='http://star-curriculum.gl.at.ply.gg:58596')
 
-tooled_global_llm = ChatOpenAI(
-    model='qwen/qwen3-235b-a22b:free',
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url="https://openrouter.ai/api/v1",
-    temperature=0,
-    reasoning_effort='high',
-)
+tooled_agent = FunctionAgent(
+    name='CoderAgent',
+    description='This AI agent can generate professional-level code',
+    system_prompt=task_system_prompt,
+    llm=Ollama(model='gpt-oss:20b', client=client),
+    tools=tools)
 
-is_llm_online = os.getenv('online')
+is_llm_online = False
 
-base_llm = base_global_llm if is_llm_online else base_local_llm
-advanced_llm = base_global_llm if is_llm_online else advanced_local_llm
-tooled_llm = tooled_global_llm if is_llm_online else tooled_local_llm
+base_llm = local_llm
+tooled_llm = tooled_agent
 
 __all__ = [
     'base_llm',
-    'advanced_llm',
     'tooled_llm',
 ]
+

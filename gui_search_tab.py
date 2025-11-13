@@ -3,8 +3,14 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdi
 from PyQt6.QtCore import QDate
 from PyQt6.QtGui import QFont
 
-from gui import TaskManagerUI
+from gui import TaskManagerUI, draw_to_table
+from tools import functions
 
+add_task = functions['add_task']
+search_tasks_database = functions['search_tasks_database']
+update_task = functions['update_task']
+delete_task = functions['delete_task']
+search_similar = functions['search_similar']
 
 class SearchTab(QWidget):
     def __init__(self, _parent: TaskManagerUI):
@@ -26,26 +32,22 @@ class SearchTab(QWidget):
 
         self.search_date_from = QDateEdit()
         self.search_date_from.setCalendarPopup(True)
-        self.search_date_from.setSpecialValueText("Не задана")
         search_layout.addRow("Дата от:", self.search_date_from)
 
         self.search_date_to = QDateEdit()
         self.search_date_to.setCalendarPopup(True)
         self.search_date_to.setDate(QDate.currentDate())
-        self.search_date_to.setSpecialValueText("Не задана")
         search_layout.addRow("Дата до:", self.search_date_to)
 
         self.search_priority_from = QSpinBox()
         self.search_priority_from.setMinimum(0)
         self.search_priority_from.setMaximum(10)
-        self.search_priority_from.setSpecialValueText("Любой")
         search_layout.addRow("Приоритет от:", self.search_priority_from)
 
         self.search_priority_to = QSpinBox()
         self.search_priority_to.setMinimum(0)
         self.search_priority_to.setMaximum(10)
         self.search_priority_to.setValue(10)
-        self.search_priority_to.setSpecialValueText("Любой")
         search_layout.addRow("Приоритет до:", self.search_priority_to)
 
         search_group.setLayout(search_layout)
@@ -86,9 +88,16 @@ class SearchTab(QWidget):
 
     def on_search_clicked(self):
         """Обработчик поиска"""
-        query = self.search_task_input.text()
-        # Здесь будет логика поиска
-        self._parent.statusBar().showMessage(f"Поиск: {query}")
+        task = self.search_task_input.text()
+        date_from = self.search_date_from.date().toPyDate()
+        date_to = self.search_date_to.date().toPyDate()
+        priority_from = self.search_priority_from.value()
+        priority_to = self.search_priority_to.value()
+        res = search_tasks_database(task, [str(date_from), str(date_to), '>'], None, [priority_from, priority_to, '>'])
+        if res == 'Неуспешно':
+            self._parent.statusBar().showMessage('Неуспешно')
+        draw_to_table('', self.search_table, res)
+        self._parent.statusBar().showMessage(f"Поиск")
 
     def on_search_clear_clicked(self):
         """Очистка условий поиска"""
@@ -101,5 +110,6 @@ class SearchTab(QWidget):
 
     def on_search_show_all_clicked(self):
         """Показать все записи"""
-        # Здесь будет логика показа всех записей
+        req = '''SELECT id, task, date, time, priority FROM active'''
+        draw_to_table(req, self.search_table)
         self._parent.statusBar().showMessage("Загрузка всех записей...")

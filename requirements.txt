@@ -9,3 +9,4 @@ llama-index-embeddings-ollama
 langchain
 llama-index-core
 langchain-core
+llama-index-llms-ollama

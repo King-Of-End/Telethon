@@ -1,5 +1,8 @@
+import sqlite3
 import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout,QTabWidget
+from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QTabWidget, QTableWidget, QTableWidgetItem
+
+sql_db: str = 'databases/sqlite/tasks.sqlite'
 
 class TaskManagerUI(QMainWindow):
     def __init__(self):
@@ -33,6 +36,35 @@ class TaskManagerUI(QMainWindow):
         self.tabs.addTab(VectorSearchTab(self), "Векторный поиск")
 
         self.statusBar().showMessage("Готов к работе")
+
+def draw_to_table(request: str, table: QTableWidget, content = None):
+    if content is None:
+        try:
+            con = sqlite3.connect(sql_db)
+            cur = con.cursor()
+            rows = cur.execute(request).fetchall()
+            column_names = [description[0] for description in cur.description]
+            table.setRowCount(len(rows))
+            table.setColumnCount(len(column_names))
+            for row_idx, row_data in enumerate(rows):
+                for col_idx, cell_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(cell_data))
+                    table.setItem(row_idx, col_idx, item)
+            table.resizeColumnsToContents()
+            con.close()
+        except Exception:
+            pass
+    else:
+        if content:
+            table.setRowCount(len(content))
+            table.setColumnCount(len(content[0]))
+            for row_idx, row_data in enumerate(content):
+                for col_idx, cell_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(cell_data))
+                    table.setItem(row_idx, col_idx, item)
+            table.resizeColumnsToContents()
+
+
 
 def start_gui():
     """Точка входа в приложение"""

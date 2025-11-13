@@ -1,4 +1,6 @@
-from langgraph.graph import StateGraph, START
+import asyncio
+
+from langgraph.graph import StateGraph, START, END
 
 from tasks import TASKS
 from LLM import *
@@ -11,14 +13,15 @@ def print_graph():
     with open('graph.png', "wb") as f:
         f.write(app.get_graph().draw_mermaid_png())
 
+def kprint(st):
+    print(st)
+    return st
+
 
 # Создание узлов
 def get_type(state: MessageState) -> MessageState:
     state.chain.append('get_type')
-    if state.completion is None:
-        llm = base_llm
-    else:
-        llm = advanced_llm
+    llm = base_llm
     llm_chain = type_prompt | llm | type_parser
     res = llm_chain.invoke(input={'user_input': state.user_message})
     state.type = res['type']
@@ -27,31 +30,33 @@ def get_type(state: MessageState) -> MessageState:
 
 def talk(state: MessageState) -> MessageState:
     state.chain.append('talk')
-    res = advanced_llm.invoke(state.user_message)
+    res = base_llm.invoke(state.user_message)
     state.message = res
     return state
 
 
-def create_task(state: MessageState) -> MessageState:
+async def create_task(state: MessageState) -> MessageState:
     state.chain.append('create_task')
-    llm_chain = task_prompt | advanced_llm | task_parser
-    res = llm_chain.invoke(input={'user_input': state.user_message, 'task': TASKS.CREATE})
+    prompt = str(task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.CREATE}))
+    r_res =  str(await tooled_llm.run(prompt))
+    res = task_parser.invoke(r_res)
     state.message = res['message']
     return state
 
 
-def get_task(state: MessageState) -> MessageState:
+async def get_task(state: MessageState) -> MessageState:
     state.chain.append('get_task')
-    llm_chain = task_prompt | advanced_llm | task_parser
-    res = llm_chain.invoke(input={'user_input': state.user_message, 'task': TASKS.GET})
+    prompt = str(task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.GET}))
+    r_res =  str(await tooled_llm.run(prompt))
+    res = task_parser.invoke(r_res)
     state.message = res['message']
     return state
 
 
-def manage_task(state: MessageState) -> MessageState:
-    state.chain.append('manage_task')
-    llm_chain = task_prompt | advanced_llm | task_parser
-    res = llm_chain.invoke(input={'user_input': state.user_message, 'task': TASKS.MANAGE})
+async def manage_task(state: MessageState) -> MessageState:
+    prompt = str(task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.MANAGE}))
+    r_res =  str(await tooled_llm.run(prompt))
+    res = task_parser.invoke(r_res)
     state.message = res['message']
     return state
 
@@ -63,7 +68,6 @@ def get_completion(state: MessageState) -> MessageState:
 
 def send_message(state: MessageState) -> MessageState:
     state.chain.append('send_message')
-    telegram.send_message(state.message, state.username)
     return state
 
 
@@ -116,5 +120,14 @@ graph.add_conditional_edges(
 
 app = graph.compile()
 
+async def main():
+    init = MessageState(user_message='Удали задачу посмотреть ютуб',)
+
+    raw_answer = await app.ainvoke(init)
+    result = MessageState(**raw_answer)
+
+    print(result.message)
+    print(result)
+
 if __name__ == '__main__':
-    print_graph()
+    asyncio.run(main())
