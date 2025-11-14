@@ -1,8 +1,10 @@
+import asyncio
+
 from dotenv import load_dotenv
 from langchain_ollama import OllamaLLM
 from llama_index.llms.ollama import Ollama
 from llama_index.core.agent import FunctionAgent
-from ollama import Client
+from ollama import Client, AsyncClient
 
 from prompts import task_system_prompt
 from tools import tools
@@ -14,15 +16,20 @@ local_llm = OllamaLLM(
     temperature=0,
     reasoning=True,
     repeat_last_n=-1,
+    base_url='http://star-curriculum.gl.at.ply.gg:58596'
 )
 
-client = Client(host='http://star-curriculum.gl.at.ply.gg:58596')
+agent_llm = Ollama(
+    model='gpt-oss:20b',
+    base_url='http://star-curriculum.gl.at.ply.gg:58596',
+)
 
 tooled_agent = FunctionAgent(
     name='CoderAgent',
     description='This AI agent can generate professional-level code',
     system_prompt=task_system_prompt,
-    llm=Ollama(model='gpt-oss:20b', client=client),
+    streaming=False,
+    llm=agent_llm,
     tools=tools)
 
 base_llm = local_llm
@@ -33,3 +40,8 @@ __all__ = [
     'tooled_llm',
 ]
 
+async def main():
+    await tooled_llm.run('привет')
+
+if __name__ == '__main__':
+    asyncio.run(main())
