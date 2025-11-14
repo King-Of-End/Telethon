@@ -1,5 +1,4 @@
 from qdrant import QDrantVectorDatabase
 
 vector = QDrantVectorDatabase()
-vector.add_task('Ютуб крутой')
-print(vector.get_task('ютуб'))
+vector.client.delete_collection(vector.collection_name)

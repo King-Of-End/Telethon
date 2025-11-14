@@ -25,8 +25,6 @@ tooled_agent = FunctionAgent(
     llm=Ollama(model='gpt-oss:20b', client=client),
     tools=tools)
 
-is_llm_online = False
-
 base_llm = local_llm
 tooled_llm = tooled_agent
 

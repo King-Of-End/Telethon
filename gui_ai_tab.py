@@ -1,3 +1,5 @@
+import asyncio
+
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QTextEdit, QComboBox, QGroupBox
 from PyQt6.QtGui import QFont
 from gui import TaskManagerUI
@@ -67,7 +69,7 @@ class AiTab(QWidget):
         query = self.ai_input_text.toPlainText()
         mode = self.ai_mode_combo.currentText()
         try:
-            res = app.invoke(MessageState(user_message=query))['message']
+            res = asyncio.run(app.ainvoke(MessageState(user_message=query)))['message']
         except Exception:
             res = 'ИИ выдал ошибку'
         self.ai_output_text.setPlainText(res)

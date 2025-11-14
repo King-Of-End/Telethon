@@ -3,7 +3,7 @@ import os
 
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.embeddings.ollama import OllamaEmbedding
-from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document
+from llama_index.core import Settings, StorageContext, VectorStoreIndex, Document, load_index_from_storage
 from llama_index.core.schema import NodeWithScore, TextNode
 from llama_index.vector_stores.qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
@@ -33,14 +33,42 @@ class QDrantVectorDatabase:
         self.vector_store = QdrantVectorStore(
             client=self.client,
             collection_name=self.collection_name,
-            dimension=768,
+            dimension=1024,
             distance=Distance.COSINE,
+            on_disk_payload=True,
+            shard_number=2,
+            replication_factor=2
         )
 
-        # Инициализация индекса
-        self._init_index()
+        try:
+            self.storage_context = StorageContext.from_defaults(
+                vector_store=self.vector_store,
+                persist_dir=r'C:databases\index'
+            )
+            print('found existing vector')
+        except LookupError:
+            self.storage_context = StorageContext.from_defaults(
+                vector_store=self.vector_store,
+            )
+            self.storage_context.persist(
+                persist_dir=r'databases\index'
+            )
+            print('created new vector')
+        try:
+            self.index = load_index_from_storage(self.storage_context)
+            print('found existing index')
+        except ValueError as e:
+            print(e)
+            self.index = VectorStoreIndex.from_documents(
+                documents=[],
+                storage_context=self.storage_context,
+                show_progress=True
+            )
+            self.storage_context.persist(
+                persist_dir=r'databases\index'
+            )
+            print('created new index')
 
-        # Инициализация парсера
         self.node_parser = SentenceSplitter(
             chunk_size=512,
             chunk_overlap=50,
@@ -83,8 +111,7 @@ class QDrantVectorDatabase:
                 vector_store=self.vector_store,
                 persist_dir=self.persist_dir
             )
-            self.index = VectorStoreIndex.from_vector_store(
-                vector_store=self.vector_store,
+            self.index = load_index_from_storage(
                 storage_context=self.storage_context
             )
             print("Индекс успешно загружен из хранилища")

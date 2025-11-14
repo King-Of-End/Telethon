@@ -82,10 +82,10 @@ def search_tasks_database(task: str | None = None,
         if isinstance(date, list) and len(date) == 3 and date[2] == '>':
             conditions.append(f'''date >= "{date[0]}" AND date <= "{date[1]}"''')
         elif isinstance(date, str):
-            conditions.append(f'''date = "{date}"''')
+            conditions.append(f'''date = "{date}" ''')
 
     if time:
-        conditions.append(f'''time = "{time}"''')
+        conditions.append(f'''time = "{time}" ''')
 
     if priority:
         if isinstance(priority, list) and len(priority) == 3 and priority[2] == '>':
@@ -95,6 +95,8 @@ def search_tasks_database(task: str | None = None,
 
     if conditions:
         request += 'WHERE ' + ' AND '.join(conditions)
+
+    print(request)
 
     try:
         con = sqlite3.connect(sql_db)
@@ -131,6 +133,9 @@ def update_task(task_id: int,
 
         # Получаем текущие данные задачи
         get_request = f'''SELECT task, date, time, priority, doc_id FROM active WHERE id={task_id}'''
+
+        print(get_request)
+
         current_data = cur.execute(get_request).fetchone()
 
         if not current_data:
@@ -140,10 +145,10 @@ def update_task(task_id: int,
         current_task, current_date, current_time, current_priority, doc_id = current_data
 
         # Используем текущие значения, если новые не указаны
-        new_task = task if task is not None else current_task
-        new_date = date if date is not None else current_date
-        new_time = time if time is not None else current_time
-        new_priority = priority if priority is not None else current_priority
+        new_task = task if task else current_task
+        new_date = date if date else current_date
+        new_time = time if time else current_time
+        new_priority = priority if priority else current_priority
 
         # Удаляем старый документ из векторной БД
         database.delete_task(doc_id)
@@ -159,6 +164,8 @@ def update_task(task_id: int,
         update_request = f'''UPDATE active 
         SET task="{new_task}", date="{new_date}", time="{new_time}", priority={new_priority}, doc_id="{new_doc_id}"
         WHERE id={task_id}'''
+
+        print(update_request)
 
         cur.execute(update_request)
         con.commit()
@@ -185,6 +192,7 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
 
         # Получаем данные задачи
         get_request = f'''SELECT id, task, date, time, priority, doc_id FROM active WHERE id={task_id}'''
+        print(get_request)
         del_task = cur.execute(get_request).fetchone()
 
         if not del_task:
@@ -197,10 +205,12 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
         # Добавляем в таблицу deleted
         add_request = f'''INSERT INTO deleted(old_id, task, date, time, priority, doc_id) 
                          VALUES({del_task[0]}, "{del_task[1]}", "{del_task[2]}", "{del_task[3]}", {del_task[4]}, "{del_task[5]}")'''
+        print(add_request)
         cur.execute(add_request)
 
         # Удаляем из active
         del_request = f'''DELETE FROM active WHERE id={task_id}'''
+        print(del_request)
         cur.execute(del_request)
 
         con.commit()

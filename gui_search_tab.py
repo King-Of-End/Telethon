@@ -30,15 +30,6 @@ class SearchTab(QWidget):
         self.search_task_input.setPlaceholderText("Ключевые слова для поиска")
         search_layout.addRow("Текст задачи:", self.search_task_input)
 
-        self.search_date_from = QDateEdit()
-        self.search_date_from.setCalendarPopup(True)
-        search_layout.addRow("Дата от:", self.search_date_from)
-
-        self.search_date_to = QDateEdit()
-        self.search_date_to.setCalendarPopup(True)
-        self.search_date_to.setDate(QDate.currentDate())
-        search_layout.addRow("Дата до:", self.search_date_to)
-
         self.search_priority_from = QSpinBox()
         self.search_priority_from.setMinimum(0)
         self.search_priority_from.setMaximum(10)
@@ -89,11 +80,9 @@ class SearchTab(QWidget):
     def on_search_clicked(self):
         """Обработчик поиска"""
         task = self.search_task_input.text()
-        date_from = self.search_date_from.date().toPyDate()
-        date_to = self.search_date_to.date().toPyDate()
         priority_from = self.search_priority_from.value()
         priority_to = self.search_priority_to.value()
-        res = search_tasks_database(task, [str(date_from), str(date_to), '>'], None, [priority_from, priority_to, '>'])
+        res = search_tasks_database(task, None, None, [priority_from, priority_to, '>'])
         if res == 'Неуспешно':
             self._parent.statusBar().showMessage('Неуспешно')
         draw_to_table('', self.search_table, res)
