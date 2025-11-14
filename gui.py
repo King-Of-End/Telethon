@@ -37,7 +37,7 @@ class TaskManagerUI(QMainWindow):
 
         self.statusBar().showMessage("Готов к работе")
 
-def draw_to_table(request: str, table: QTableWidget, content = None):
+def draw_to_table(request: str, table: QTableWidget, content = None) -> None | str:
     if content is None:
         try:
             con = sqlite3.connect(sql_db)
@@ -63,6 +63,8 @@ def draw_to_table(request: str, table: QTableWidget, content = None):
                     item = QTableWidgetItem(str(cell_data))
                     table.setItem(row_idx, col_idx, item)
             table.resizeColumnsToContents()
+        else:
+            return 'Не найдено'
 
 
 

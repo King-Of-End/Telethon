@@ -1,11 +1,9 @@
 from typing import List, Literal, Callable, Any
 import sqlite3
 from llama_index.core.tools import FunctionTool
-from qdrant import QDrantVectorDatabase
 
 tools = list()
 functions: dict[str, Callable] = dict()
-database: QDrantVectorDatabase = QDrantVectorDatabase()
 sql_db: str = 'databases/sqlite/tasks.sqlite'
 
 
@@ -37,13 +35,13 @@ def add_task(task: str,
     time: str (формат HH:MM)
     priority: int (от 1 до 10)"""
 
-    doc_id = database.add_task(task, date, time, priority)
+    # doc_id = database.add_task(task, date, time, priority)
+    #
+    # if doc_id is None:
+    #     return 'Неуспешно'
 
-    if doc_id is None:
-        return 'Неуспешно'
-
-    request: str = f'''INSERT INTO active(task, date, time, priority, doc_id) 
-    VALUES("{task}", "{date}", "{time}", {priority}, "{doc_id}")'''
+    request: str = f'''INSERT INTO active(task, date, time, priority) 
+    VALUES("{task}", "{date}", "{time}", {priority})'''
 
     try:
         con = sqlite3.connect(sql_db)
@@ -53,7 +51,7 @@ def add_task(task: str,
         con.close()
         return 'Успешно'
     except sqlite3.DatabaseError:
-        database.delete_task(doc_id)
+        # database.delete_task(doc_id)
         return 'Неуспешно'
 
 
@@ -72,7 +70,7 @@ def search_tasks_database(task: str | None = None,
 
     Возвращает список с результатами поиска """
 
-    request: str = f'''SELECT id, task, date, time, priority, doc_id FROM active '''
+    request: str = f'''SELECT id, task, date, time, priority FROM active '''
     conditions = []
 
     if task:
@@ -132,7 +130,7 @@ def update_task(task_id: int,
         cur = con.cursor()
 
         # Получаем текущие данные задачи
-        get_request = f'''SELECT task, date, time, priority, doc_id FROM active WHERE id={task_id}'''
+        get_request = f'''SELECT task, date, time, priority FROM active WHERE id={task_id}'''
 
         print(get_request)
 
@@ -142,7 +140,7 @@ def update_task(task_id: int,
             con.close()
             return 'Неуспешно'
 
-        current_task, current_date, current_time, current_priority, doc_id = current_data
+        current_task, current_date, current_time, current_priority = current_data
 
         # Используем текущие значения, если новые не указаны
         new_task = task if task else current_task
@@ -151,18 +149,18 @@ def update_task(task_id: int,
         new_priority = priority if priority else current_priority
 
         # Удаляем старый документ из векторной БД
-        database.delete_task(doc_id)
+        # database.delete_task(doc_id)
 
         # Добавляем новый документ в векторную БД
-        new_doc_id = database.add_task(new_task, new_date, new_time, new_priority)
-
-        if new_doc_id is None:
-            con.close()
-            return 'Неуспешно'
+        # new_doc_id = database.add_task(new_task, new_date, new_time, new_priority)
+        #
+        # if new_doc_id is None:
+        #     con.close()
+        #     return 'Неуспешно'
 
         # Обновляем данные в SQL БД
         update_request = f'''UPDATE active 
-        SET task="{new_task}", date="{new_date}", time="{new_time}", priority={new_priority}, doc_id="{new_doc_id}"
+        SET task="{new_task}", date="{new_date}", time="{new_time}", priority={new_priority}
         WHERE id={task_id}'''
 
         print(update_request)
@@ -174,7 +172,7 @@ def update_task(task_id: int,
         return 'Успешно'
 
     except Exception as e:
-        print(f"Error updating task: {e}")
+        print(e)
         return 'Неуспешно'
 
 
@@ -191,8 +189,7 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
         cur = con.cursor()
 
         # Получаем данные задачи
-        get_request = f'''SELECT id, task, date, time, priority, doc_id FROM active WHERE id={task_id}'''
-        print(get_request)
+        get_request = f'''SELECT id, task, date, time, priority FROM active WHERE id={task_id}'''
         del_task = cur.execute(get_request).fetchone()
 
         if not del_task:
@@ -200,16 +197,16 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
             return 'Неуспешно'
 
         # Удаляем из векторной БД
-        database.delete_task(del_task[5])  # doc_id находится на 5-й позиции
+        # database.delete_task(del_task[5])  # doc_id находится на 5-й позиции
 
         # Добавляем в таблицу deleted
-        add_request = f'''INSERT INTO deleted(old_id, task, date, time, priority, doc_id) 
-                         VALUES({del_task[0]}, "{del_task[1]}", "{del_task[2]}", "{del_task[3]}", {del_task[4]}, "{del_task[5]}")'''
+        add_request = f'''INSERT INTO deleted(old_id, task, date, time, priority) 
+                         VALUES({del_task[0]}, "{del_task[1]}", "{del_task[2]}", "{del_task[3]}", {del_task[4]} )'''
         print(add_request)
         cur.execute(add_request)
 
         # Удаляем из active
-        del_request = f'''DELETE FROM active WHERE id={task_id}'''
+        del_request = f'''DELETE FROM active WHERE id={task_id} '''
         print(del_request)
         cur.execute(del_request)
 
@@ -233,7 +230,7 @@ def search_similar(query: str, top_k: int = 1) -> List[dict]:
     Возвращает список с top_k количеством подходящих задач"""
     ans: List[dict] = []
     try:
-        results = database.get_task(query, top_k)
+        results = (query, top_k)
         for i in results:
             ans.append(i.dict())
         return ans
@@ -245,16 +242,14 @@ def search_similar(query: str, top_k: int = 1) -> List[dict]:
 def create_clear_db():
     con = sqlite3.connect(sql_db)
     cur = con.cursor()
-    cur.execute('''CREATE TABLE if not exists active (
+    cur.execute('''CREATE TABLE active (
     id       INTEGER PRIMARY KEY AUTOINCREMENT
                      UNIQUE
                      NOT NULL,
     task     TEXT    NOT NULL,
     date     TEXT,
     time     TEXT,
-    priority INTEGER NOT NULL,
-    doc_id   TEXT    NOT NULL
-                     UNIQUE
+    priority INTEGER NOT NULL
 );
 ''')
     cur.execute('''CREATE TABLE deleted (
@@ -265,10 +260,9 @@ def create_clear_db():
     task     TEXT    NOT NULL,
     date     TEXT,
     time     TEXT,
-    priority INTEGER NOT NULL,
-    doc_id   TEXT    NOT NULL
+    priority INTEGER NOT NULL
 );
 ''')
 
 
-__all__ = ['tools', 'functions', 'database', 'create_clear_db']
+__all__ = ['tools', 'functions', 'create_clear_db']

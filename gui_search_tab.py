@@ -79,20 +79,23 @@ class SearchTab(QWidget):
 
     def on_search_clicked(self):
         """Обработчик поиска"""
+        self._parent.statusBar().showMessage(f"Поиск")
         task = self.search_task_input.text()
         priority_from = self.search_priority_from.value()
         priority_to = self.search_priority_to.value()
         res = search_tasks_database(task, None, None, [priority_from, priority_to, '>'])
         if res == 'Неуспешно':
             self._parent.statusBar().showMessage('Неуспешно')
-        draw_to_table('', self.search_table, res)
-        self._parent.statusBar().showMessage(f"Поиск")
+        r = draw_to_table('', self.search_table, res)
+        if not r:
+            self._parent.statusBar().showMessage(f"Успешно")
+            return
+        self._parent.statusBar().showMessage(r)
+
 
     def on_search_clear_clicked(self):
         """Очистка условий поиска"""
         self.search_task_input.clear()
-        self.search_date_from.clear()
-        self.search_date_to.setDate(QDate.currentDate())
         self.search_priority_from.setValue(0)
         self.search_priority_to.setValue(10)
         self._parent.statusBar().showMessage("Условия поиска очищены")

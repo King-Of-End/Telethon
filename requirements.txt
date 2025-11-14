@@ -1,5 +1,8 @@
+pydantic
+pyqt6-sip
+ollama
+pyqt6==6.9.1
 langgraph
-pyqt6
 python-dotenv
 langchain-ollama
 langchain-openai

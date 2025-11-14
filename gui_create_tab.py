@@ -109,7 +109,7 @@ class CreateTab(QWidget):
 
             if search_text:
                 # Поиск по тексту задачи
-                request = f'''SELECT id, task, date, time, priority, doc_id FROM active WHERE task LIKE "%{search_text}%"'''
+                request = f'''SELECT id, task, date, time, priority FROM active WHERE task LIKE "%{search_text}%"'''
                 results = cur.execute(request).fetchall()
 
                 if results:
@@ -122,7 +122,6 @@ class CreateTab(QWidget):
 Дата: {task_data[2]}
 Время: {task_data[3]}
 Приоритет: {task_data[4]}
-Doc ID: {task_data[5]}
 
 Найдено задач: {len(results)}"""
 
@@ -144,7 +143,7 @@ Doc ID: {task_data[5]}
                     self._parent.statusBar().showMessage("Задачи не найдены")
             else:
                 # Поиск по ID
-                request = f'''SELECT id, task, date, time, priority, doc_id FROM active WHERE id={task_id}'''
+                request = f'''SELECT id, task, date, time, priority FROM active WHERE id={task_id}'''
                 result = cur.execute(request).fetchone()
 
                 if result:
@@ -154,8 +153,7 @@ Doc ID: {task_data[5]}
 Задача: {result[1]}
 Дата: {result[2]}
 Время: {result[3]}
-Приоритет: {result[4]}
-Doc ID: {result[5]}"""
+Приоритет: {result[4]} """
 
                     self.update_info_text.setPlainText(info_text)
 
