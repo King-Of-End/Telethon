@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from langchain_ollama import OllamaLLM
 from llama_index.llms.ollama import Ollama
 from llama_index.core.agent import FunctionAgent
-from ollama import Client, AsyncClient
 
 from prompts import task_system_prompt
 from tools import tools
@@ -20,8 +19,7 @@ local_llm = OllamaLLM(
 )
 
 agent_llm = Ollama(
-    model='gpt-oss:20b',
-    base_url='http://star-curriculum.gl.at.ply.gg:58596',
+    model='qwen3:8b',
 )
 
 tooled_agent = FunctionAgent(

@@ -1,7 +1,7 @@
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QTextEdit,
                              QTableWidget, QSpinBox, QGroupBox, QFormLayout, QHeaderView, QSplitter, QTableWidgetItem)
 from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QFont
+from PyQt6.QtGui import QFont, QPixmap, QImage
 
 from gui import TaskManagerUI, sql_db
 import sqlite3
@@ -16,6 +16,14 @@ class VectorSearchTab(QWidget):
         tab = self
         self._parent = _parent
         layout = QVBoxLayout(tab)
+
+        if True:
+            self.pixmap = QPixmap('5168ee86e7f89238a8814990621d8b0d.jpg')
+            img = QLabel(self)
+            img.setPixmap(self.pixmap)
+            img.resize(1200, 1100)
+            layout.addWidget(img)
+            return
 
         title = QLabel("Векторный поиск")
         title.setFont(QFont("Arial", 14, QFont.Weight.Bold))
@@ -102,7 +110,7 @@ class VectorSearchTab(QWidget):
         """Обработчик векторного поиска"""
         query = self.vector_query_input.toPlainText()
         k = self.vector_k_input.value()
-        threshold = self.vector_threshold_input.value() / 100.0  # Конвертируем в 0-1
+        threshold = self.vector_threshold_input.value() / 100.0
 
         if not query.strip():
             self._parent.statusBar().showMessage("Введите запрос для поиска")
@@ -111,7 +119,6 @@ class VectorSearchTab(QWidget):
         try:
             self._parent.statusBar().showMessage(f"Выполняется векторный поиск...")
 
-            # Выполняем векторный поиск
             results = search_similar(query, k)
 
             if not results:
@@ -121,18 +128,14 @@ class VectorSearchTab(QWidget):
                 self._parent.statusBar().showMessage("Результаты не найдены")
                 return
 
-            # Фильтруем по порогу релевантности
             filtered_results = []
             con = sqlite3.connect(sql_db)
             cur = con.cursor()
 
             for result in results:
-                # Получаем score из результата
                 score = result.get('score', 0)
 
-                # Проверяем порог
                 if True:
-                    # Получаем данные задачи из БД по doc_id
                     doc_id = result.get('node', dict()).get('id_', '')
 
                     if doc_id:
@@ -153,7 +156,6 @@ class VectorSearchTab(QWidget):
 
             con.close()
 
-            # Заполняем таблицу
             self.vector_table.setRowCount(len(filtered_results))
 
             for row_idx, result in enumerate(filtered_results):
@@ -168,7 +170,6 @@ class VectorSearchTab(QWidget):
             self.vector_table.resizeColumnsToContents()
             self.vector_results_label.setText(f"Найдено записей: {len(filtered_results)}")
 
-            # Формируем детальную информацию
             detail_text = f"Запрос: {query}\n"
             detail_text += f"Найдено результатов: {len(filtered_results)}\n"
             detail_text += f"Порог релевантности: {threshold:.0%}\n\n"
@@ -199,7 +200,6 @@ class VectorSearchTab(QWidget):
         if selected_rows:
             row = selected_rows[0].row()
 
-            # Получаем данные из выбранной строки
             task_id = self.vector_table.item(row, 0).text()
             task = self.vector_table.item(row, 1).text()
             date = self.vector_table.item(row, 2).text()
@@ -208,7 +208,6 @@ class VectorSearchTab(QWidget):
             doc_id = self.vector_table.item(row, 5).text()
             score = self.vector_table.item(row, 6).text()
 
-            # Обновляем детальную информацию
             detail_text = f"Выбранная задача:\n\n"
             detail_text += f"ID: {task_id}\n"
             detail_text += f"Задача: {task}\n"
@@ -218,7 +217,6 @@ class VectorSearchTab(QWidget):
             detail_text += f"Doc ID: {doc_id}\n"
             detail_text += f"Релевантность: {score}\n"
 
-            # Сохраняем предыдущий текст и добавляем информацию о выборе
             current_text = self.vector_output_text.toPlainText()
             if "Выбранная задача:" not in current_text:
                 self.vector_output_text.setPlainText(current_text + "\n\n" + "=" * 50 + "\n\n" + detail_text)

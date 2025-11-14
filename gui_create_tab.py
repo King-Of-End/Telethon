@@ -16,7 +16,7 @@ class CreateTab(QWidget):
     def __init__(self, _parent: TaskManagerUI):
         super().__init__()
         self._parent = _parent
-        self.current_task_id = None  # Хранение ID найденной задачи
+        self.current_task_id = None
         tab = self
         layout = QVBoxLayout(tab)
 
@@ -108,12 +108,10 @@ class CreateTab(QWidget):
             cur = con.cursor()
 
             if search_text:
-                # Поиск по тексту задачи
                 request = f'''SELECT id, task, date, time, priority FROM active WHERE task LIKE "%{search_text}%"'''
                 results = cur.execute(request).fetchall()
 
                 if results:
-                    # Берем первый результат
                     task_data = results[0]
                     self.current_task_id = task_data[0]
 
@@ -126,8 +124,6 @@ class CreateTab(QWidget):
 Найдено задач: {len(results)}"""
 
                     self.update_info_text.setPlainText(info_text)
-
-                    # Заполняем поля текущими значениями
                     self.update_new_task.setText(task_data[1])
                     if task_data[2]:
                         date_parts = task_data[2].split('-')
@@ -142,7 +138,6 @@ class CreateTab(QWidget):
                     self.update_info_text.setPlainText("Задачи не найдены")
                     self._parent.statusBar().showMessage("Задачи не найдены")
             else:
-                # Поиск по ID
                 request = f'''SELECT id, task, date, time, priority FROM active WHERE id={task_id}'''
                 result = cur.execute(request).fetchone()
 
@@ -156,8 +151,6 @@ class CreateTab(QWidget):
 Приоритет: {result[4]} """
 
                     self.update_info_text.setPlainText(info_text)
-
-                    # Заполняем поля текущими значениями
                     self.update_new_task.setText(result[1])
                     if result[2]:
                         date_parts = result[2].split('-')
@@ -182,8 +175,6 @@ class CreateTab(QWidget):
         if self.current_task_id is None:
             self._parent.statusBar().showMessage("Сначала найдите задачу для обновления")
             return
-
-        # Собираем новые значения
         new_task = self.update_new_task.text() if self.update_new_task.text() else None
         new_date = str(
             self.update_new_date.date().toPyDate()) if self.update_new_date.date() != QDate.currentDate() else None
@@ -191,8 +182,6 @@ class CreateTab(QWidget):
         new_time = str(':'.join(
             [str(raw_time.hour), str(raw_time.minute)])) if self.update_new_time.time() != QTime.currentTime() else None
         new_priority = self.update_new_priority.value() if self.update_new_priority.value() != 0 else None
-
-        # Вызываем функцию обновления
         result = update_task(
             task_id=self.current_task_id,
             task=new_task,
@@ -204,7 +193,6 @@ class CreateTab(QWidget):
         self._parent.statusBar().showMessage(f"Обновление задачи: {result}")
 
         if result == "Успешно":
-            # Обновляем информацию
             self.on_update_find_clicked()
 
     def on_update_clear_clicked(self):

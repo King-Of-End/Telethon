@@ -90,7 +90,6 @@ class AddTab(QWidget):
         req = '''SELECT id, task, date, time, priority FROM active'''
         draw_to_table(req, self.add_table)
 
-    # Вкладка 2: Добавление
     def on_add_task_clicked(self):
         task = self.add_task_input.text()
         date = str(self.add_date_input.date().toPyDate())

@@ -13,11 +13,6 @@ def print_graph():
     with open('graph.png', "wb") as f:
         f.write(app.get_graph().draw_mermaid_png())
 
-def kprint(st):
-    print(st)
-    return st
-
-
 # Создание узлов
 def get_type(state: MessageState) -> MessageState:
     state.chain.append('get_type')
@@ -120,14 +115,3 @@ graph.add_conditional_edges(
 
 app = graph.compile()
 
-async def main():
-    init = MessageState(user_message='Удали задачу посмотреть ютуб',)
-
-    raw_answer = await app.ainvoke(init)
-    result = MessageState(**raw_answer)
-
-    print(result.message)
-    print(result)
-
-if __name__ == '__main__':
-    asyncio.run(main())

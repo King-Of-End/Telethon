@@ -71,11 +71,7 @@ def draw_to_table(request: str, table: QTableWidget, content = None) -> None | s
 def start_gui():
     """Точка входа в приложение"""
     app = QApplication(sys.argv)
-
-    # Установка стиля приложения
     app.setStyle('Fusion')
-
-    # Создание и отображение главного окна
     window = TaskManagerUI()
     window.show()
 

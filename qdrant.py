@@ -10,7 +10,6 @@ from qdrant_client import QdrantClient
 from qdrant_client.http import models as rest
 from qdrant_client.models import Distance
 
-# Настройка embeddings
 Settings.embed_model = OllamaEmbedding(
     model_name="nomic-embed-text",
     base_url='http://star-curriculum.gl.at.ply.gg:58596',
@@ -21,15 +20,12 @@ Settings.embed_model = OllamaEmbedding(
 class QDrantVectorDatabase:
     def __init__(self) -> None:
         self.collection_name = 'tasks'
-        self.persist_dir = "databases/index"  # Корректный путь
+        self.persist_dir = "databases/index"
 
-        # Создаем директорию для сохранения
         os.makedirs(self.persist_dir, exist_ok=True)
 
-        # Инициализация клиента Qdrant
         self._init_qdrant_client()
 
-        # Инициализация vector store
         self.vector_store = QdrantVectorStore(
             client=self.client,
             collection_name=self.collection_name,
@@ -45,7 +41,6 @@ class QDrantVectorDatabase:
                 vector_store=self.vector_store,
                 persist_dir=r'C:databases\index'
             )
-            print('found existing vector')
         except LookupError:
             self.storage_context = StorageContext.from_defaults(
                 vector_store=self.vector_store,
@@ -53,12 +48,9 @@ class QDrantVectorDatabase:
             self.storage_context.persist(
                 persist_dir=r'databases\index'
             )
-            print('created new vector')
         try:
             self.index = load_index_from_storage(self.storage_context)
-            print('found existing index')
         except ValueError as e:
-            print(e)
             self.index = VectorStoreIndex.from_documents(
                 documents=[],
                 storage_context=self.storage_context,
@@ -67,7 +59,6 @@ class QDrantVectorDatabase:
             self.storage_context.persist(
                 persist_dir=r'databases\index'
             )
-            print('created new index')
 
         self.node_parser = SentenceSplitter(
             chunk_size=512,
@@ -106,7 +97,6 @@ class QDrantVectorDatabase:
     def _init_index(self):
         """Корректная инициализация индекса"""
         try:
-            # Попытка загрузить существующий индекс
             self.storage_context = StorageContext.from_defaults(
                 vector_store=self.vector_store,
                 persist_dir=self.persist_dir
@@ -114,10 +104,7 @@ class QDrantVectorDatabase:
             self.index = load_index_from_storage(
                 storage_context=self.storage_context
             )
-            print("Индекс успешно загружен из хранилища")
         except Exception as e:
-            print(f"Ошибка при загрузке индекса: {e}")
-            # Создание нового индекса
             self.storage_context = StorageContext.from_defaults(
                 vector_store=self.vector_store,
             )
@@ -126,7 +113,6 @@ class QDrantVectorDatabase:
                 storage_context=self.storage_context
             )
             self.storage_context.persist(persist_dir=self.persist_dir)
-            print("Создан новый индекс")
 
     def add_task(self,
                  task: str | None = None,
@@ -144,22 +130,16 @@ class QDrantVectorDatabase:
         }
 
         try:
-            # Создаем узел вручную для большего контроля
             node = TextNode(
                 text=task,
                 metadata=metadata
             )
 
-            # Добавляем документ напрямую в индекс
             self.index.insert_nodes([node])
 
-            # Сохраняем изменения
             self.storage_context.persist(persist_dir=self.persist_dir)
-
-            print(f"Задача успешно добавлена с ID: {node.node_id}")
             return node.node_id
         except Exception as e:
-            print(f"Ошибка при добавлении задачи: {e}")
             return None
 
     def delete_task(self, task_id: str) -> None:
@@ -170,34 +150,14 @@ class QDrantVectorDatabase:
                 delete_from_docstore=True
             )
             self.storage_context.persist(persist_dir=self.persist_dir)
-            print(f"Задача с ID {task_id} успешно удалена")
         except Exception as e:
-            print(f"Ошибка при удалении задачи: {e}")
+            pass
 
     def get_task(self, query: str, k: int = 3) -> List[NodeWithScore]:
         """Получение задач по запросу"""
         try:
-            # Используем простой retriever вместо query engine
             retriever = self.index.as_retriever(similarity_top_k=k)
             results = retriever.retrieve(query)
-            print(f"Найдено {len(results)} результатов по запросу '{query}'")
             return results
         except Exception as e:
-            print(f"Ошибка при поиске задач: {e}")
             return []
-
-
-# Тестирование
-if __name__ == "__main__":
-    vector = QDrantVectorDatabase()
-    task_id = vector.add_task('Ютуб крутой')
-
-    results = vector.get_task('ютуб')
-
-    if results:
-        for node in results:
-            print(f"Текст: {node.node.text}")
-            print(f"Метаданные: {node.node.metadata}")
-            print(f"Релевантность: {node.score}")
-    else:
-        print("Ничего не найдено")

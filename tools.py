@@ -94,8 +94,6 @@ def search_tasks_database(task: str | None = None,
     if conditions:
         request += 'WHERE ' + ' AND '.join(conditions)
 
-    print(request)
-
     try:
         con = sqlite3.connect(sql_db)
         cur = con.cursor()
@@ -103,7 +101,6 @@ def search_tasks_database(task: str | None = None,
         con.close()
         return res
     except sqlite3.DatabaseError as e:
-        print(f"Database error: {e}")
         return 'Неуспешно'
 
 
@@ -131,8 +128,6 @@ def update_task(task_id: int,
 
         # Получаем текущие данные задачи
         get_request = f'''SELECT task, date, time, priority FROM active WHERE id={task_id}'''
-
-        print(get_request)
 
         current_data = cur.execute(get_request).fetchone()
 
@@ -163,8 +158,6 @@ def update_task(task_id: int,
         SET task="{new_task}", date="{new_date}", time="{new_time}", priority={new_priority}
         WHERE id={task_id}'''
 
-        print(update_request)
-
         cur.execute(update_request)
         con.commit()
         con.close()
@@ -172,7 +165,6 @@ def update_task(task_id: int,
         return 'Успешно'
 
     except Exception as e:
-        print(e)
         return 'Неуспешно'
 
 
@@ -202,12 +194,10 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
         # Добавляем в таблицу deleted
         add_request = f'''INSERT INTO deleted(old_id, task, date, time, priority) 
                          VALUES({del_task[0]}, "{del_task[1]}", "{del_task[2]}", "{del_task[3]}", {del_task[4]} )'''
-        print(add_request)
         cur.execute(add_request)
 
         # Удаляем из active
         del_request = f'''DELETE FROM active WHERE id={task_id} '''
-        print(del_request)
         cur.execute(del_request)
 
         con.commit()
@@ -216,7 +206,6 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
         return 'Успешно'
 
     except Exception as e:
-        print(f"Error deleting task: {e}")
         return 'Неуспешно'
 
 
@@ -235,7 +224,6 @@ def search_similar(query: str, top_k: int = 1) -> List[dict]:
             ans.append(i.dict())
         return ans
     except Exception as e:
-        print(f"Error in search_similar: {e}")
         return []
 
 

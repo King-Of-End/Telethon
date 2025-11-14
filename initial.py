@@ -28,7 +28,6 @@ def check_everything() -> None:
         from langchain_core.tools import StructuredTool
         from langchain.tools import tool
         import sqlite3
-        from qdrant import QDrantVectorDatabase
         from langgraph.graph import StateGraph, START, END
         import os
         from dotenv import load_dotenv
@@ -38,13 +37,6 @@ def check_everything() -> None:
         from langchain_core.prompts import ChatPromptTemplate, HumanMessagePromptTemplate
         from typing import List
         from pydantic import BaseModel
-        from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-        Settings.embed_model = HuggingFaceEmbedding(
-            model_name="intfloat/e5-large-v2",
-            embed_batch_size=32,
-            normalize=True,
-            query_instruction="passage: "
-        )
     except ModuleNotFoundError:
         try:
             subprocess.run('python.exe -m pip install --upgrade pip', shell=True)

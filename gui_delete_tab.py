@@ -80,8 +80,6 @@ class DeleteTab(QWidget):
 
         deleted_group.setLayout(deleted_layout)
         layout.addWidget(deleted_group)
-
-        # Загружаем удаленные задачи при инициализации
         self.on_delete_refresh_clicked()
 
     def on_delete_task_clicked(self):
@@ -94,10 +92,7 @@ class DeleteTab(QWidget):
             con = sqlite3.connect(sql_db)
             cur = con.cursor()
 
-            # Определяем, какой критерий используется
             if task_id > 0:
-                # Удаление по ID
-                # Проверяем существование задачи
                 check_request = f'''SELECT id FROM active WHERE id={task_id}'''
                 result = cur.execute(check_request).fetchone()
 
@@ -112,12 +107,10 @@ class DeleteTab(QWidget):
                     QMessageBox.warning(self, "Предупреждение", f"Задача с ID {task_id} не существует")
 
             elif search_text:
-                # Удаление по тексту задачи
                 find_request = f'''SELECT id FROM active WHERE task LIKE "%{search_text}%"'''
                 results = cur.execute(find_request).fetchall()
 
                 if results:
-                    # Подтверждение удаления
                     reply = QMessageBox.question(
                         self,
                         'Подтверждение удаления',
@@ -139,12 +132,10 @@ class DeleteTab(QWidget):
                     QMessageBox.information(self, "Информация", "Задачи с таким текстом не найдены")
 
             elif priority > 0:
-                # Удаление по приоритету
                 find_request = f'''SELECT id FROM active WHERE priority={priority}'''
                 results = cur.execute(find_request).fetchall()
 
                 if results:
-                    # Подтверждение удаления
                     reply = QMessageBox.question(
                         self,
                         'Подтверждение удаления',
@@ -212,7 +203,6 @@ class DeleteTab(QWidget):
         if selected_rows:
             row = selected_rows[0].row()
 
-            # Получаем данные задачи
             task_id = int(self.delete_table.item(row, 0).text())
             task = self.delete_table.item(row, 1).text()
             date = self.delete_table.item(row, 2).text()
@@ -224,12 +214,10 @@ class DeleteTab(QWidget):
                 con = sqlite3.connect(sql_db)
                 cur = con.cursor()
 
-                # Восстанавливаем задачу
                 restore_request = f'''INSERT INTO active(task, date, time, priority, doc_id) 
                                      VALUES("{task}", "{date}", "{time}", {priority}, "{doc_id}")'''
                 cur.execute(restore_request)
 
-                # Удаляем из таблицы deleted
                 delete_request = f'''DELETE FROM deleted WHERE id={task_id}'''
                 cur.execute(delete_request)
 

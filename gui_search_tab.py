@@ -1,10 +1,11 @@
+import csv
+import sqlite3
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton,
-                             QTableWidget, QSpinBox, QDateEdit, QGroupBox, QFormLayout, QHeaderView)
-from PyQt6.QtCore import QDate
+                             QTableWidget, QSpinBox, QGroupBox, QFormLayout, QHeaderView, QFileDialog)
 from PyQt6.QtGui import QFont
 
 from gui import TaskManagerUI, draw_to_table
-from tools import functions
+from tools import functions, sql_db
 
 add_task = functions['add_task']
 search_tasks_database = functions['search_tasks_database']
@@ -58,6 +59,10 @@ class SearchTab(QWidget):
         show_all_button.clicked.connect(self.on_search_show_all_clicked)
         buttons_layout.addWidget(show_all_button)
 
+        download_csv_button = QPushButton('Скачать базу данных')
+        download_csv_button.clicked.connect(self.download)
+        buttons_layout.addWidget(download_csv_button)
+
         buttons_layout.addStretch()
         layout.addLayout(buttons_layout)
         results_group = QGroupBox("Результаты поиска")
@@ -105,3 +110,25 @@ class SearchTab(QWidget):
         req = '''SELECT id, task, date, time, priority FROM active'''
         draw_to_table(req, self.search_table)
         self._parent.statusBar().showMessage("Загрузка всех записей...")
+
+    def download(self):
+        req = '''SELECT id, task, date, time, priority FROM active'''
+        try:
+            con = sqlite3.connect(sql_db)
+            cur = con.cursor()
+            rows = cur.execute(req).fetchall()
+            path = QFileDialog.getSaveFileName(
+                self,
+                'Выбрать csv',
+                '',
+                "CSV files (*.csv);;All files (*)"
+            )
+            if not path:
+                self._parent.statusBar().showMessage('Выберите файл')
+                return
+            with open(path[0], 'w', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerows(rows)
+            self._parent.statusBar().showMessage('Успешно')
+        except:
+            self._parent.statusBar().showMessage('Неуспешно')
