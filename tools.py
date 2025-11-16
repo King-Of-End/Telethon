@@ -1,5 +1,7 @@
 from typing import List, Literal, Callable, Any
 import sqlite3
+
+from langchain_core.tools import StructuredTool
 from llama_index.core.tools import FunctionTool
 
 tools = list()
@@ -15,11 +17,7 @@ def add(func: Any) -> Callable:
 def add_func(func: Any) -> Callable:
     functions[func.__name__] = func
     tools.append(
-        FunctionTool.from_defaults(
-            fn=func,
-            description=func.__doc__,
-            name=func.__name__,
-        ))
+        StructuredTool.from_function(func))
     return func
 
 

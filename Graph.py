@@ -32,9 +32,8 @@ def talk(state: MessageState) -> MessageState:
 
 async def create_task(state: MessageState) -> MessageState:
     state.chain.append('create_task')
-    prompt = str(task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.CREATE}))
-    r_res =  str(await tooled_llm.run(prompt))
-    res = task_parser.invoke(r_res)
+    llm_chain = task_human_prompt | tooled_llm | task_parser
+    res = llm_chain.invoke({'user_input': state.user_message, 'task': TASKS.CREATE})
     state.message = res['message']
     return state
 
