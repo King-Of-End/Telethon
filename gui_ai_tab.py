@@ -69,11 +69,14 @@ class AiTab(QWidget):
         query = self.ai_input_text.toPlainText()
         mode = self.ai_mode_combo.currentText()
         try:
-            res = asyncio.run(app.ainvoke(MessageState(user_message=query)))
-        except Exception:
-            res = 'ИИ выдал ошибку'
+            self.parent_.statusBar().showMessage(f"Отправка запроса в режиме: {mode}")
+            res = asyncio.run(app.ainvoke(MessageState(user_message=query)))['message']
+        except Exception as e:
+            res = f'ИИ выдал ошибку: {e}'
+            self.parent_.statusBar().showMessage('Ошибка выполнения')
         self.ai_output_text.setPlainText(res)
         self.parent_.statusBar().showMessage(f"Отправка запроса в режиме: {mode}")
+
 
     def on_ai_clear_clicked(self):
         self.ai_input_text.clear()

@@ -1,5 +1,3 @@
-import asyncio
-
 from dotenv import load_dotenv
 from langchain.agents import create_agent
 from langchain_ollama import OllamaLLM, ChatOllama
@@ -9,7 +7,7 @@ from tools import tools
 
 load_dotenv()
 
-local_llm = OllamaLLM(
+local_llm = ChatOllama(
     model='gpt-oss:20b',
     temperature=0,
     reasoning=True,

@@ -67,7 +67,7 @@ class DeleteTab(QWidget):
 
         self.delete_table = QTableWidget()
         self.delete_table.setColumnCount(6)
-        self.delete_table.setHorizontalHeaderLabels(["ID", "Задача", "Дата", "Время", "Приоритет", "Doc ID"])
+        self.delete_table.setHorizontalHeaderLabels(["ID", "Задача", "Дата", "Время", "Приоритет"])
         self.delete_table.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
         self.delete_table.setAlternatingRowColors(True)
         self.delete_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
@@ -177,7 +177,7 @@ class DeleteTab(QWidget):
             con = sqlite3.connect(sql_db)
             cur = con.cursor()
 
-            request = '''SELECT id, task, date, time, priority, doc_id FROM deleted'''
+            request = '''SELECT id, task, date, time, priority FROM deleted'''
             results = cur.execute(request).fetchall()
 
             self.delete_table.setRowCount(len(results))
@@ -208,14 +208,13 @@ class DeleteTab(QWidget):
             date = self.delete_table.item(row, 2).text()
             time = self.delete_table.item(row, 3).text()
             priority = int(self.delete_table.item(row, 4).text())
-            doc_id = self.delete_table.item(row, 5).text()
 
             try:
                 con = sqlite3.connect(sql_db)
                 cur = con.cursor()
 
-                restore_request = f'''INSERT INTO active(task, date, time, priority, doc_id) 
-                                     VALUES("{task}", "{date}", "{time}", {priority}, "{doc_id}")'''
+                restore_request = f'''INSERT INTO active(task, date, time, priority) 
+                                     VALUES("{task}", "{date}", "{time}", {priority})'''
                 cur.execute(restore_request)
 
                 delete_request = f'''DELETE FROM deleted WHERE id={task_id}'''

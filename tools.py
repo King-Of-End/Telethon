@@ -48,7 +48,7 @@ def add_task(task: str,
         con.commit()
         con.close()
         return 'Успешно'
-    except sqlite3.DatabaseError:
+    except sqlite3.DatabaseError as e:
         # database.delete_task(doc_id)
         return 'Неуспешно'
 
