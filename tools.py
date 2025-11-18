@@ -179,7 +179,7 @@ def delete_task(task_id: int) -> Literal['Успешно', 'Неуспешно']
         cur = con.cursor()
 
         # Получаем данные задачи
-        get_request = f'''SELECT id, task, date, time, priority FROM active WHERE id={task_id}'''
+        get_request = f'''SELECT id, task, date, time, priority FROM active WHERE id={task_id} '''
         del_task = cur.execute(get_request).fetchone()
 
         if not del_task:
