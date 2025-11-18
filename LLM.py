@@ -1,7 +1,5 @@
 import asyncio
 from typing import Literal, List
-
-from langchain_core.tools import tool
 from typing_extensions import TypedDict
 
 from dotenv import load_dotenv
@@ -17,7 +15,7 @@ from tools import tools
 load_dotenv()
 
 local_llm = ChatOllama(
-    model='gpt-oss:20b',
+    model='qwen3:8b',
     temperature=0,
     reasoning=True,
     repeat_last_n=-1,
@@ -25,7 +23,7 @@ local_llm = ChatOllama(
 )
 
 agent_llm = ChatOllama(
-    model='gpt-oss:20b',
+    model='qwen3:8b',
     base_url='http://star-curriculum.gl.at.ply.gg:58596',
     reasoning=True
 )
