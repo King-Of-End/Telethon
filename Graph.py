@@ -34,25 +34,28 @@ async def create_task(state: MessageState) -> MessageState:
     state.chain.append('create_task')
     prompt = task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.CREATE})
     agent_input = AgentInput(messages=[Message(role='user', content=prompt.to_string())])
-    agent_chain = tooled_llm | task_parser
-    res = agent_chain.invoke(input=agent_input)
+    raw_res = tooled_llm.invoke(input=agent_input)['messages'][-1].content
+    res = task_parser.invoke(raw_res)
     state.message = res['message']
     return state
 
 
 async def get_task(state: MessageState) -> MessageState:
     state.chain.append('get_task')
-    prompt = str(task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.GET}))
-    r_res =  str(await tooled_llm.run(prompt))
-    res = task_parser.invoke(r_res)
+    prompt = task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.GET})
+    agent_input = AgentInput(messages=[Message(role='user', content=prompt.to_string())])
+    raw_res = tooled_llm.invoke(input=agent_input)['messages'][-1].content
+    res = task_parser.invoke(raw_res)
     state.message = res['message']
     return state
 
 
 async def manage_task(state: MessageState) -> MessageState:
-    prompt = str(task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.MANAGE}))
-    r_res =  str(await tooled_llm.run(prompt))
-    res = task_parser.invoke(r_res)
+    state.chain.append('manage_task')
+    prompt = task_human_prompt.invoke(input={'user_input': state.user_message, 'task': TASKS.MANAGE})
+    agent_input = AgentInput(messages=[Message(role='user', content=prompt.to_string())])
+    raw_res = tooled_llm.invoke(input=agent_input)['messages'][-1].content
+    res = task_parser.invoke(raw_res)
     state.message = res['message']
     return state
 

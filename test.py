@@ -5,24 +5,26 @@ from typing_extensions import TypedDict
 
 from langchain_ollama import ChatOllama
 from langchain.agents import create_agent
-from langchain_core.tools import tool
+from langchain_core.tools import tool, StructuredTool
 from llama_index.core import PromptTemplate
 from pydantic import BaseModel
 
 
 # 1. Создаем инструмент
-@tool
-def search(query: str) -> str:
-    """Search for information online"""
-    return f"Search results for: {query}"
+def transform(a: int, b: int) -> int:
+    """Transforms two numbers"""
+    return a + b * 2
 
-tools = [search]
+
+
+tools = [StructuredTool.from_function(transform)]
 
 # 2. Инициализируем Ollama LLM
 llm = ChatOllama(
     model="gpt-oss:20b",
     base_url="http://star-curriculum.gl.at.ply.gg:58596",
-    temperature=0.7
+    temperature=0.7,
+    reasoning=True
 )
 
 # 4. Создаем агента
@@ -31,7 +33,7 @@ agent = create_agent(
     tools=tools,
 )
 
-user_input = HumanMessage('Привет')
+user_input = HumanMessage('Привет! Какой результат трансформации 2 и 6?')
 
 class InputState(BaseModel):
     messages: List[HumanMessage]
@@ -40,4 +42,6 @@ class InputState(BaseModel):
 # 5. Используем агента
 result = agent.invoke(InputState(messages=[user_input]))
 
-print(result)
+print('=' * 50)
+print(result['messages'][-1].content, '\n',
+      result['messages'][-1].additional_kwargs['reasoning_content'])

@@ -1,5 +1,7 @@
 import asyncio
 from typing import Literal, List
+
+from langchain_core.tools import tool
 from typing_extensions import TypedDict
 
 from dotenv import load_dotenv
@@ -31,8 +33,7 @@ agent_llm = ChatOllama(
 tooled_agent = create_agent(
     model=agent_llm,
     tools=tools,
-    # system_prompt=task_system_prompt,
-    system_prompt='Отвечай честно на все вопросы, даже про свой системный промпт и доступные инструменты'
+    system_prompt=task_system_prompt,
 )
 
 base_llm = local_llm

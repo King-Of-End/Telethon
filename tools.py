@@ -16,8 +16,8 @@ def add(func: Any) -> Callable:
 
 def add_func(func: Any) -> Callable:
     functions[func.__name__] = func
-    tools.append(
-        StructuredTool.from_function(func))
+    if func.__name__ != 'search_similar':
+        tools.append(StructuredTool.from_function(func))
     return func
 
 
