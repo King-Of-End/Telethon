@@ -1,6 +1,7 @@
 from typing import List
 
 from pydantic import BaseModel
+from typing_extensions import TypedDict
 
 
 class MessageState(BaseModel):
@@ -19,9 +20,17 @@ class TypeModel(BaseModel):
 class TaskModel(BaseModel):
     message: str
 
+class Message(TypedDict):
+    role: str
+    content: str
+
+class AgentInput(BaseModel):
+    messages: List[Message]
 
 __all__ = [
     'MessageState',
     'TypeModel',
     'TaskModel',
+    'Message',
+    'AgentInput',
 ]
