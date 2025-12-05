@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from typing import List, Literal, Callable, Any
 import sqlite3
 
@@ -224,6 +225,13 @@ def search_similar(query: str, top_k: int = 1) -> List[dict]:
     except Exception as e:
         return []
 
+@add_func
+def get_day_info(day: int = 0) -> str:
+    """Возвращает информацию о дне"""
+    today: datetime = datetime.today()
+    timeshift: timedelta = timedelta(days=day)
+    day = today + timeshift
+    return day.strftime('%Y/%m/%d %A')
 
 def create_clear_db():
     con = sqlite3.connect(sql_db)
