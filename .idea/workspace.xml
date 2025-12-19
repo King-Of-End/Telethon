@@ -4,24 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Закончил склеивать код">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_11_2025_16_22_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_11_2025_16_22__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_11_2025_8_32_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_11_2025_8_32__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_2025_9_54_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_2025_9_54__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2025,_17_40_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_11_2025__17_40__Changes_.xml" beforeDir="false" />
+    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Тестирую телеграм">
+      <change afterPath="$PROJECT_DIR$/scheduler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LLM.py" beforeDir="false" afterPath="$PROJECT_DIR$/LLM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/sqlite/tasks.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/databases/sqlite/tasks.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/prompts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/telegram.py" beforeDir="false" afterPath="$PROJECT_DIR$/telegram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763067509507</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Тестирую телеграм">
+      <option name="closed" value="true" />
+      <created>1764968356095</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764968356095</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,7 +347,8 @@
     <MESSAGE value="Начал тестирование удаленного подключения" />
     <MESSAGE value="ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС" />
     <MESSAGE value="Закончил склеивать код" />
-    <option name="LAST_COMMIT_MESSAGE" value="Закончил склеивать код" />
+    <MESSAGE value="Тестирую телеграм" />
+    <option name="LAST_COMMIT_MESSAGE" value="Тестирую телеграм" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
