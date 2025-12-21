@@ -120,7 +120,6 @@ class Scheduler:
 async def main() -> None:
     Scheduler().add_reminder(time.time() + 10, 'Привет')
     Scheduler().add_reminder(time.time() + 5, 'Пока')
-    await asyncio.sleep(1000)
 
 if __name__ == '__main__':
     asyncio.run(main())

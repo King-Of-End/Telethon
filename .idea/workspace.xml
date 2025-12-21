@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Тестирую телеграм">
+    <list default="true" id="b4b827aa-ae05-44c1-a492-71c7ac23cc36" name="Changes" comment="Сделал базовую версию напоминаний">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reminders.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reminders.db" beforeDir="false" afterPath="$PROJECT_DIR$/reminders.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,39 +45,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.Graph.executor": "Run",
-    "Python.LLM.executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.gui.executor": "Debug",
-    "Python.gui_add_tab.executor": "Run",
-    "Python.initial.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.prompts.executor": "Run",
-    "Python.qdrant.executor": "Debug",
-    "Python.scheduler.executor": "Run",
-    "Python.telegram.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.tools.executor": "Run",
-    "Python.window.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/user/PycharmProjects/Telethon/main.py",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Graph.executor&quot;: &quot;Run&quot;,
+    &quot;Python.LLM.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gui.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.gui_add_tab.executor&quot;: &quot;Run&quot;,
+    &quot;Python.initial.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.prompts.executor&quot;: &quot;Run&quot;,
+    &quot;Python.qdrant.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.scheduler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.telegram.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tools.executor&quot;: &quot;Run&quot;,
+    &quot;Python.window.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/user/PycharmProjects/Telethon/main.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\NIKITA\PycharmProjects\Telethon" />
       <recent name="C:\Users\NIKITA\PycharmProjects\Telethon\tabs" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="Graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Telethon" />
       <option name="ENV_FILES" value="" />
@@ -325,7 +324,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764968356095</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Сделал базовую версию напоминаний">
+      <option name="closed" value="true" />
+      <created>1766264010181</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1766264010181</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +357,8 @@
     <MESSAGE value="ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС" />
     <MESSAGE value="Закончил склеивать код" />
     <MESSAGE value="Тестирую телеграм" />
-    <option name="LAST_COMMIT_MESSAGE" value="Тестирую телеграм" />
+    <MESSAGE value="Сделал базовую версию напоминаний" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал базовую версию напоминаний" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
