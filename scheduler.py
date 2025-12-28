@@ -168,7 +168,7 @@ class Scheduler:
             threading.Thread(target=self._reminder_callback, args=(rid,)).start()
 
     def _reminder_callback(self, rid: int) -> None:
-        print(self._get_from_database(rid), rid)
+
         self._mark_fired_in_database(rid)
 
 

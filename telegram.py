@@ -41,5 +41,8 @@ async def handle_message(client, message):
 
     await message.reply_text(response)
 
-if __name__ == '__main__':
+def start_telegram_app():
     telegram_app.run()
+
+if __name__ == '__main__':
+    start_telegram_app()

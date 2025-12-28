@@ -1,9 +1,11 @@
+import time
+
+from scheduler import Scheduler
+
 from datetime import datetime, timedelta
 from typing import List, Literal, Callable, Any
 import sqlite3
-
 from langchain_core.tools import StructuredTool
-from llama_index.core.tools import FunctionTool
 
 tools = list()
 functions: dict[str, Callable] = dict()
@@ -224,6 +226,19 @@ def search_similar(query: str, top_k: int = 1) -> List[dict]:
         return ans
     except Exception as e:
         return []
+
+@add_func
+def add_reminder(reminder_time: str = '123', message: str = '123') -> None:
+    """Добавляет напоминание с заданным сообщением на переданное время
+
+    reminder_time : время в формате YYYY.MM.DD/HH.MM.SS
+    message : сообщение которое будет выведено в напоминании
+    """
+
+    dt = datetime.strptime(reminder_time, "%Y.%m.%d.%H.%M.%S").timestamp()
+
+    scheduler = Scheduler()
+    scheduler.add_reminder(dt, message)
 
 @add_func
 def get_day_info(day: int = 0) -> str:

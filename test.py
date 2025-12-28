@@ -1,3 +1,10 @@
-import math
+import time
+from datetime import datetime, timezone
 
-print(3 ** math.factorial(99) > math.factorial(3 ** 99))
+s = "2025.12.28.14.45.00"
+dt = datetime.strptime(s, "%Y.%m.%d.%H.%M.%S")
+ts = dt.timestamp()
+
+print(ts, time.time())
+1766922300
+1766922304

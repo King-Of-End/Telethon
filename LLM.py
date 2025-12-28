@@ -14,19 +14,16 @@ local_llm = ChatOllama(
     temperature=0,
     reasoning=True,
     repeat_last_n=-1,
-    base_url='http://star-curriculum.gl.at.ply.gg:58596'
 )
 
 llm = ChatOllama(
     model='gpt-oss:20b',
     reasoning=True,
     repeat_last_n=-1,
-    base_url='http://star-curriculum.gl.at.ply.gg:58596'
 )
 
 agent_llm = ChatOllama(
     model='gpt-oss:20b',
-    base_url='http://star-curriculum.gl.at.ply.gg:58596',
     reasoning=True,
 )
 
